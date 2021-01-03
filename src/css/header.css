@@ -1,0 +1,22 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: grey;
+}
+
+.header-menu {
+    padding: 15px;
+}
+
+.nav-item {
+    padding: 0px 10px;
+}
+
+.nav-link {
+    padding: 5px;
+    text-decoration: none;
+    color:white;
+}

@@ -1,0 +1,10 @@
+footer {
+    background-color: grey;
+}
+
+.copyright-line {
+    padding: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
