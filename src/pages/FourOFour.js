@@ -2,9 +2,9 @@ import React from 'react';
 
 const FourOFour = () => {
     return (
-        <main className='container'>
+        <React.Fragment>
             <h1>404</h1>
-        </main>
+        </React.Fragment>
     );
 }
 

@@ -1,22 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import Login from './Login';
 
-const PageChooser = ( {accountLvl, requiredLvl, inputPage} ) => {
-    const [page, setPage] = useState(<Login />);
+const PageChooser = ( {accountLvl, requiredLvl, setGlobals, inputPage} ) => {
+    const [page, setPage] = useState(<Login setGlobals={setGlobals} />);
     
     useEffect( () => {
         if (accountLvl < requiredLvl) {
-            setPage(<Login />);
+            setPage(<Login setGlobals={setGlobals}/>);
         } else {
             setPage(inputPage);
         }
-    }, [requiredLvl]);
+    }, [accountLvl, setPage, inputPage, requiredLvl, setGlobals]);
 
     return (
-        <React.Fragment>
+        <main className='container main'>
             {page}
-            {/* <div>{accountLvl}</div> */}
-        </React.Fragment>
+        </main>
     );
 }
 

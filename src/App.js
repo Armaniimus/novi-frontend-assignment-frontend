@@ -1,13 +1,14 @@
 import React from 'react';
 import Router from './Router/Router';
 import './css/grid.css';
-import './css/footer.css';
 import './css/header.css';
+import './css/main.css';
+import './css/footer.css';
 
-const App = () => {
+const App = () => {  
     return (
         <React.Fragment>
-            <Router/>
+            <Router />
         </React.Fragment>
     );
 }

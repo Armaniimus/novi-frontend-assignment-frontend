@@ -1,4 +1,15 @@
-/*grid version 1.5*/
+/*De Hoopkaap grid version 1.6*/
+
+.flexparent {display:flex}
+.vert-start.flexparent {justify-items: start;}
+.vert-center.flexparent {justify-items: center;}
+.vert-end.flexparent {justify-items: end;}
+
+.hor-start.flexparent {justify-content: flex-start;}
+.hor-center.flexparent {justify-content: center;}
+.hor-end.flexparent {justify-content: flex-end;}
+
+.flexblock {display: inline-block;}
 
 /* grid support function1: */
 * {
