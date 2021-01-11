@@ -2,6 +2,13 @@ import React, {useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import Breadcrumb from '../components/Breadcrumb';
 
+const breadcrumbData = [
+    {
+        name: 'Login',
+        link: ''
+    }
+];
+
 const Login = ({setGlobals}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -23,13 +30,6 @@ const Login = ({setGlobals}) => {
             }
         }
     }
-
-    const breadcrumbData = [
-        {
-            name: 'Login',
-            link: ''
-        }
-    ];
 
     return (
         <React.Fragment>

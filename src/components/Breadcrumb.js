@@ -20,13 +20,6 @@ const Breadcrumb = ({data, className}) => {
     const crumbs = comps.map( (comp) => {
         return <React.Fragment key={i++}>{comp}</React.Fragment>;
     });
-    // const crumbs = comp;
-
-    // const crumbs = data.map( ({link, name}) => {
-    //     return <Link key={link} href={link} className={className} >{name}</Link>
-    // });
-
-    console.log(data);
 
     return (
         <React.Fragment>

@@ -10,7 +10,6 @@ const Link = ({ className, href, children }) => {
 
         e.preventDefault();
         window.history.pushState({}, '', href);
-        
         window.dispatchEvent(navEvent);
     };
 

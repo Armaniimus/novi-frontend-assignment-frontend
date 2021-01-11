@@ -4,6 +4,13 @@ import Breadcrumb from '../components/Breadcrumb';
 import OverviewTable from '../components/OverviewTable';
 import '../css/overview.css';
 
+const breadcrumbData = [
+    {
+        name: 'Overview',
+        link: ''
+    },
+]
+
 const Overview = ({token}) => {
     const [term, setTerm] = useState('');
     const [data, setData] = useState({});
@@ -41,17 +48,6 @@ const Overview = ({token}) => {
             );
         }
     }, [data]);
-    
-    const breadcrumbData = [
-        {
-            name: 'Overview',
-            link: ''
-        },
-        {
-            name: 'Item',
-            link: 'Overview/item'
-        }
-    ]
 
     return (
         <React.Fragment>
