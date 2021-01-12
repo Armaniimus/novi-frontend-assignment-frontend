@@ -1,0 +1,15 @@
+::a script to more easily resume a project by autobooting required programs on windows
+
+cd ./novi-frontend-assignment-backend
+start php artisan serve
+
+cd ../novi-frontend-assignment-frontend
+start npm start
+
+start code
+start C:\xampp\xampp-control.exe
+
+start code
+start C:\xampp\xampp-control.exe
+
+exit
