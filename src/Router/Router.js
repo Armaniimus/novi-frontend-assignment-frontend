@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Compare from '../functions/Compare';
 
 import PageRouting from './PageRouting';
 
@@ -12,7 +13,7 @@ import AccountBeheer from '../pages/AccountBeheer';
 import OverviewSpecific from '../pages/OverviewSpecific';
 
 const checkMatchingPath = (path, currentPath) => {
-    const returnObj = {testResult: null, urlVars: {} }
+    const returnObj = {testResult: null, newUrlVars: {} }
     if (path === currentPath) {
         returnObj.testResult = true;
         return returnObj;
@@ -31,7 +32,7 @@ const checkMatchingPath = (path, currentPath) => {
 
                 if (search2 !== -1 && search3 !== -1) {
                     const newPathItem = pathArray[i].slice(1, -1);
-                    returnObj.urlVars[newPathItem] = currentPathArray[i];
+                    returnObj.newUrlVars[newPathItem] = currentPathArray[i];
                     continue;
 
                 } else if (pathArray[i] !== currentPathArray[i]) {
@@ -40,8 +41,6 @@ const checkMatchingPath = (path, currentPath) => {
                 }
             }
             returnObj.testResult = true;
-            console.log('returnObj = ')
-            console.log(returnObj);
             return returnObj;
         } 
     }
@@ -50,11 +49,13 @@ const checkMatchingPath = (path, currentPath) => {
 }
 
 const Router = () => {
+    const [routes, setRoutes] = useState([]);
     const [token, setToken] = useState(0);
     const [accountLvl, setAccountLvl] = useState(0);
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
     const [renderedRoute, setRenderedRoute] = useState(null);
-    const [urlVars, setUrlVars] = useState('');
+    const [urlVars, setUrlVars] = useState({});
+    const [changedUrlVars, setChangedUrlVars] = useState({});
 
     useEffect( () => {
         const onLocationChange = () => {
@@ -67,21 +68,11 @@ const Router = () => {
         return () => {
             window.removeEventListener('popstate', onLocationChange);
         }
-    }, []);
+    }, [currentPath, accountLvl, token, urlVars]);
 
-    // useEffect( () => {
-    //     if (cookie exists) {
-    //         setToken(cookie);
-    //     }
-    // }, [] );
 
     useEffect( () => {
-        const setGlobals = {
-            setAccountLvl   : setAccountLvl,
-            setToken        : setToken
-        }
-    
-        const routes = [
+        setRoutes([
             {
                 path: '/',
                 page: <Overview token={token}/>,
@@ -98,39 +89,58 @@ const Router = () => {
                 requiredLvl: 1
             },
             {
-                path: '/404',
-                page: <FourOFour />,
-                requiredLvl: 0
+                path: '/accountbeheer',
+                page: <AccountBeheer token={token}/>,
+                requiredLvl: 2
             },
             {
-                path: '/accountbeheer',
-                page: <AccountBeheer />,
+                path: '/accountbeheer/{id}',
+                page: <AccountBeheer token={token}/>,
                 requiredLvl: 2
             },
             {
                 path: '/liedbeheer',
-                page: <LiedBeheer />,
+                page: <LiedBeheer token={token} />,
                 requiredLvl: 2
             },
-        ];
+            {
+                path: '/liedbeheer/{id}',
+                page: <LiedBeheer token={token} />,
+                requiredLvl: 2
+            },
+            {
+                path: '/404',
+                page: <FourOFour />,
+                requiredLvl: 0
+            },
+        ]);
+    }, [token, urlVars] );
+
+    useEffect( () => {
+        const setGlobals = {
+            setAccountLvl   : setAccountLvl,
+            setToken        : setToken
+        }        
 
         let fourOfour = true;
         routes.map( ({path, page, requiredLvl }) => {
-            const {testResult, urlVars} = checkMatchingPath(path, currentPath);
-            console.log(testResult);
-            console.log(urlVars);
+            const {testResult, newUrlVars} = checkMatchingPath(path, currentPath);
+
             if (testResult) {
-                // console.log(newUrlVars);
-                setUrlVars(urlVars);
                 fourOfour = false;
-                
-                setRenderedRoute(
-                    <React.Fragment>
-                        <Header accountLvl={accountLvl} />
-                        <PageRouting accountLvl={accountLvl} requiredLvl={requiredLvl} setGlobals={setGlobals} inputPage={page} />
-                        <Footer />
-                    </React.Fragment>
-                );
+                                
+                if ( Compare.compare(urlVars, newUrlVars) == false ) {
+                    setUrlVars(newUrlVars);
+
+                } else {
+                    setRenderedRoute(
+                        <React.Fragment>
+                            <Header accountLvl={accountLvl} />
+                            <PageRouting accountLvl={accountLvl} requiredLvl={requiredLvl} setGlobals={setGlobals} inputPage={page} />
+                            <Footer />
+                        </React.Fragment>
+                    );
+                }
             } 
             return null;
         });
@@ -140,7 +150,7 @@ const Router = () => {
             window.history.pushState({}, '', '/');
             window.dispatchEvent(navEvent);
         }
-    }, [currentPath, accountLvl, token]);
+    }, [currentPath, accountLvl, routes]);
 
     return (
         <React.Fragment>
