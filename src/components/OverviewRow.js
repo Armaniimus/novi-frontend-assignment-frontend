@@ -8,7 +8,7 @@ const OverviewRow = ({id, title, number}) => {
             <td>{number}</td>
             <td>
                 <Link href={`/overview/${id}`} className=''>
-                    <button onClick={e => {console.log(id)}}>bekijk</button>
+                    <button>bekijk</button>
                 </Link>
 
             </td>
