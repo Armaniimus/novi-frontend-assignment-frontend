@@ -36,22 +36,13 @@ const Overview = ({token}) => {
     }, [setData, token]);
 
     useEffect( () => {        
-        if (data.status === 'success') {    
-            setRenderedData(
-                <React.Fragment>
-                    <form onSubmit={ e => { onFormSubmit(e) }}>
-                        <input type='search' value={term} onChange={ (e) => setTerm(e.target.value) } />
-                        <input type='submit' value='search'/>
-                    </form>
-                    <OverviewTable data={data.songinfo} />
-                </React.Fragment>
-            );
+        if (data.status === 'success') {   
+            setRenderedData( <OverviewTable data={data.songinfo} />);
         }
     }, [data]);
 
     return (
         <React.Fragment>
-            
             <div className='hor-center flexparent'>
                 <div className='flex-block'>
                     
@@ -60,6 +51,11 @@ const Overview = ({token}) => {
                             <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
                         </div>
                     </div>
+
+                    <form onSubmit={ e => { onFormSubmit(e) }}>
+                        <input type='search' value={term} onChange={ (e) => setTerm(e.target.value) } />
+                        <input type='submit' value='search'/>
+                    </form>
                     
                     {renderedData}
                 </div>

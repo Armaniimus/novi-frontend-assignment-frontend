@@ -1,4 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import OwnApi from '../apis/OwnApi';
+
 import Breadcrumb from '../components/Breadcrumb';
 
 const breadcrumbData = [
@@ -12,10 +14,37 @@ const breadcrumbData = [
     }
 ];
 
-const OverviewSpecific = ({urlVars}) => {
+const OverviewSpecific = ({urlVars, token}) => {
+    const [data, setData] = useState({});
+    const [renderedData, setRenderedData] = useState(<React.Fragment>Loading...</React.Fragment>);
+
     useEffect( () => {
-        console.log(urlVars);
-    }, [urlVars]);
+        const request = async () => {
+            let requestData = new URLSearchParams();
+            requestData.append('token', token);
+            const response = await OwnApi.post(`/overview/${urlVars.id}`, requestData);
+
+            if (response.status === 200 && response.data.status === 'success') {
+                setData(response.data);
+            }
+        }
+        if (urlVars.id !== undefined) {
+            request();
+        }
+    }, [setData, token, urlVars]);
+
+    useEffect( () => {
+        if (data.status === 'success') {
+            setRenderedData(
+                <React.Fragment>
+                    <div>{data.songinfo.id}</div>
+                    <div>{data.songinfo.number}</div>
+                    <div>{data.songinfo.title}</div>
+                    <div>{data.songinfo.songText}</div>
+                </React.Fragment>
+            );
+        }
+    }, [data, setRenderedData]);
 
     return (
         <React.Fragment>
@@ -27,7 +56,7 @@ const OverviewSpecific = ({urlVars}) => {
                         </div>
                     </div>
 
-                    {/* content */}
+                    {renderedData}
                 </div>
             </div>
         </React.Fragment>

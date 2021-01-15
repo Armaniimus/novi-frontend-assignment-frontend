@@ -7,6 +7,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 import Overview from '../pages/Overview';
+import Login from '../pages/Login';
 import FourOFour from '../pages/FourOFour';
 import LiedBeheer from '../pages/LiedBeheer';
 import AccountBeheer from '../pages/AccountBeheer';
@@ -53,9 +54,21 @@ const Router = () => {
     const [token, setToken] = useState(0);
     const [accountLvl, setAccountLvl] = useState(0);
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
-    const [renderedRoute, setRenderedRoute] = useState(null);
     const [urlVars, setUrlVars] = useState({});
-    const [changedUrlVars, setChangedUrlVars] = useState({});
+    const [routeParams, setRouteParams] = useState({page: null, requiredLvl: 0});
+
+    const setGlobals = {
+        setAccountLvl   : setAccountLvl,
+        setToken        : setToken
+    }
+
+    //set a default value
+    useEffect( () => {
+        setRouteParams({
+            page: <Login setGlobals={setGlobals}/>, 
+            requiredLvl: 0
+        });
+    }, []);
 
     useEffect( () => {
         const onLocationChange = () => {
@@ -116,12 +129,7 @@ const Router = () => {
         ]);
     }, [token, urlVars] );
 
-    useEffect( () => {
-        const setGlobals = {
-            setAccountLvl   : setAccountLvl,
-            setToken        : setToken
-        }        
-
+    useEffect( () => {  
         let fourOfour = true;
         routes.map( ({path, page, requiredLvl }) => {
             const {testResult, newUrlVars} = checkMatchingPath(path, currentPath);
@@ -129,17 +137,11 @@ const Router = () => {
             if (testResult) {
                 fourOfour = false;
                                 
-                if ( Compare.compare(urlVars, newUrlVars) == false ) {
+                if ( Compare.compare(urlVars, newUrlVars) === false ) {
                     setUrlVars(newUrlVars);
 
                 } else {
-                    setRenderedRoute(
-                        <React.Fragment>
-                            <Header accountLvl={accountLvl} />
-                            <PageRouting accountLvl={accountLvl} requiredLvl={requiredLvl} setGlobals={setGlobals} inputPage={page} />
-                            <Footer />
-                        </React.Fragment>
-                    );
+                    setRouteParams( {page: page, requiredLvl: requiredLvl} );
                 }
             } 
             return null;
@@ -150,11 +152,15 @@ const Router = () => {
             window.history.pushState({}, '', '/');
             window.dispatchEvent(navEvent);
         }
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPath, accountLvl, routes]);
 
     return (
         <React.Fragment>
-            {renderedRoute}
+            <Header accountLvl={accountLvl} />
+            <PageRouting accountLvl={accountLvl} requiredLvl={routeParams.requiredLvl} setGlobals={setGlobals} inputPage={routeParams.page} />
+            <Footer />
         </React.Fragment>
     );
 }
