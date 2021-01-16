@@ -35,14 +35,18 @@ const OverviewSpecific = ({urlVars, token}) => {
 
     useEffect( () => {
         if (data.status === 'success') {
-            setRenderedData(
-                <React.Fragment>
-                    <div>{data.songinfo.id}</div>
-                    <div>{data.songinfo.number}</div>
-                    <div>{data.songinfo.title}</div>
-                    <div>{data.songinfo.songText}</div>
-                </React.Fragment>
-            );
+            if (data.songInfo !== undefined) {
+                setRenderedData(
+                    <React.Fragment>
+                        <div>{data.songInfo.id}</div>
+                        <div>{data.songInfo.number}</div>
+                        <div>{data.songInfo.title}</div>
+                        <div>{data.songInfo.songText}</div>
+                    </React.Fragment>
+                );
+            } else {
+                console.error('songinfo undefined', data);
+            }
         }
     }, [data, setRenderedData]);
 

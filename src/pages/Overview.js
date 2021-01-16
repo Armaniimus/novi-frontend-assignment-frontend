@@ -37,7 +37,11 @@ const Overview = ({token}) => {
 
     useEffect( () => {        
         if (data.status === 'success') {   
-            setRenderedData( <OverviewTable data={data.songinfo} />);
+            if (data.songInfo !== undefined) {
+                setRenderedData( <OverviewTable data={data.songInfo} />);
+            } else {
+                console.error('incorectdata gained', data);
+            }
         }
     }, [data]);
 
