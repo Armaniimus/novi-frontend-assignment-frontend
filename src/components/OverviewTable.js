@@ -1,6 +1,6 @@
 import React from 'react';
 import OverviewRow from './OverviewRow';
-import OverviewHeader from './OverviewHeader';
+import TableHeader from './TableHeader';
 
 const OverviewTable = ({data}) => {
     const renderedRows = data.map( ({id, title, number}) => {
@@ -10,7 +10,7 @@ const OverviewTable = ({data}) => {
     return (
         <React.Fragment>
             <table>
-                <OverviewHeader />
+                <TableHeader titles={['Number', 'Title']}/>
                 <tbody>
                     {renderedRows}
                 </tbody>
