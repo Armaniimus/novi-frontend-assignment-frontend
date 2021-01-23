@@ -1,0 +1,54 @@
+button.btn {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button.btn.danger {
+    border: 1px solid #DC3545;
+    background-color: #DC3545;
+    color: white;
+}
+
+button.btn.danger:hover {
+    background-color: #B21F2D;
+    border: 1px solid #B21F2D;
+}
+
+button.btn.warning {
+    background-color: #FFC107;
+    border: 1px solid #FFC107;
+    
+    color: #212529;
+}
+
+button.btn.warning:hover {
+    background-color: #E0A800;
+    border: 1px solid #E0A800;
+}
+
+button.btn.success {
+    color: white;
+    background-color: #28a745;
+    border: 1px solid #28a745;
+}
+
+button.btn.success:hover {
+    background-color: #1e7e34;
+    border: 1px solid #1e7e34;
+}
+
+button.btn.info {
+
+}
+
+button.btn.noRadius {
+    height: 40px;
+    border-radius: 0px;
+}
+button.btn.rightRadius {
+    height: 40px;
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+}
