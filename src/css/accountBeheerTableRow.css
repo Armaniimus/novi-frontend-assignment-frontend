@@ -1,0 +1,30 @@
+.inputAdminBeheer.role {
+    width: 60px;
+}
+
+.inputAdminBeheer.username {
+    width: 150px;
+}
+
+.inputAdminBeheer.pass {
+    width: 120px;
+}
+
+.tableRow,
+.tableRow > td,
+.tableRow > td > input  {
+    height: 40px;
+}
+
+.tableRow > td {
+    margin: 0px;
+    padding: 0px;
+}
+
+.tableRowSpacer {
+    height: 20px;
+}
+
+.tableRow > td > input {
+    text-align: center;
+}
