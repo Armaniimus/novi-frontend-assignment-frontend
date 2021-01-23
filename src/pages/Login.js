@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import OwnApi from '../apis/OwnApi';
+import {HandleLoginError} from '../functions/HandleError';
 import Breadcrumb from '../components/Breadcrumb';
 
 const breadcrumbData = [
@@ -28,6 +29,8 @@ const Login = ({setGlobals}) => {
             } else if (response.data.role === 'admin') {
                 setGlobals.setAccountLvl(2);
             }
+        } else {
+            HandleLoginError(response);
         }
     }
 

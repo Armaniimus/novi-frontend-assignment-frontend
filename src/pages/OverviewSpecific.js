@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
+import {HandleApiError} from '../functions/HandleError';
 
 import Breadcrumb from '../components/Breadcrumb';
 
@@ -26,6 +27,8 @@ const OverviewSpecific = ({urlVars, token}) => {
 
             if (response.status === 200 && response.data.status === 'success') {
                 setData(response.data);
+            } else {
+                HandleApiError(response);
             }
         }
         if (urlVars.id !== undefined) {

@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
+import {HandleApiError} from '../functions/HandleError';
+
 import Breadcrumb from '../components/Breadcrumb';
 import OverviewTable from '../components/OverviewTable';
 import '../css/overview.css';
@@ -29,6 +31,8 @@ const Overview = ({token}) => {
 
             if (response.status === 200 && response.data.status === 'success') {
                 setData(response.data);
+            } else {
+                HandleApiError(response);
             }
         }
 
