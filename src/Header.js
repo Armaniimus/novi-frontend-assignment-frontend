@@ -3,44 +3,26 @@ import Link from './components/Link';
 import './css/header.css';
 
 const noLoginRender = () => {
-    return (
-        <header>
-            <nav className='header-menu row'>
-                <div className='nav-item col-auto'>
-                    <Link href='/' className='nav-link'>Login</Link>
-                </div>
-            </nav>
-        </header>
-    );
+    return <React.Fragment />;
 }
 
 const userRender = () => {
     return (
-        <header>
-            <nav className='header-menu row'>
-                <div className='nav-item col-auto'>
-                    <Link href='/' className='nav-link'>Overview</Link>
-                </div>
-            </nav>
-
-            {/* <button>logout</button> */}
-        </header>
+        <nav className='nav-list'>
+            <Link href='/' className='nav-link'>Overview</Link>
+            <Link href='/logout' className='nav-link logout-link'>Logout</Link>
+        </nav>
     );
 }
 
 const adminRender = () => {
     return (
-        <header>
-            <nav className='header-menu row'>
-                <div className='nav-item col-auto'>
-                    <Link href='/overview' className='nav-link'>Overview</Link>
-                    <Link href='/accountbeheer' className='nav-link'>Account Beheer</Link>
-                    <Link href='/liedbeheer' className='nav-link'>Lied Beheer</Link>
-                </div>
-            </nav>
-
-            {/* <button>logout</button> */}
-        </header>
+        <nav className='nav-list'>
+            <Link href='/overview' className='nav-link'>Overview</Link>
+            <Link href='/accountbeheer' className='nav-link'>Account Beheer</Link>
+            <Link href='/liedbeheer' className='nav-link'>Lied Beheer</Link>
+            <Link href='/logout' className='nav-link logout-link'>Logout</Link>
+        </nav>
     );
 }
 
@@ -61,7 +43,14 @@ const Header = ({accountLvl}) => {
         );
     }, [accountLvl]);
 
-    return renderedElement;
+    return (
+        <header>
+            <h1 className='nav-logo'>
+                <Link href='/' className='nav-link'>ZingApp</Link>
+            </h1>
+            {renderedElement}
+        </header>
+    )
 }
 
 export default Header;
