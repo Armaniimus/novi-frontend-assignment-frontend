@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
-import '../css/AccountBeheer.css';
+import '../css/accountBeheer.css';
 
 import Breadcrumb from '../components/Breadcrumb';
 import TableHeader from '../components/TableHeader';
@@ -17,7 +17,7 @@ const breadcrumbData = [
 ];
 
 const AccountBeheer = ({token}) => {
-    const tableHeader = <TableHeader titles={['Username', 'New-password*', 'Role', 'Actions']} colSpan={[1,1,1,3]}/>;
+    const tableHeader = <TableHeader titles={['Username', 'New-password*', 'Role', 'Actions']} colSpan={[1,1,1,2]}/>;
     
     const [renderedData, setRenderedData] = useState( <div>Loading...</div>);
     const [tableBody, setTableBody] = useState({});
