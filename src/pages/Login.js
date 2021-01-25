@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleLoginError} from '../functions/HandleError';
+
 import Breadcrumb from '../components/Breadcrumb';
+import Button from '../components/Button'
 
 const breadcrumbData = [
     {
@@ -49,7 +51,7 @@ const Login = ({setGlobals}) => {
                         <input type='password' autoComplete='current-password' id='login-password' value={password} onChange={ e => {setPassword(e.target.value)} }/>
 
                         <br /><br />
-                        <input type='submit'/>
+                        <Button className='info' type='submit'>Login</Button>
                         
                         <br /><br />
                         <br /><br />
