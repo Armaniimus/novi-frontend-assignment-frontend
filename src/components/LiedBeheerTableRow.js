@@ -1,25 +1,23 @@
 import React, {useState} from 'react';
 import OwnApi from '../apis/OwnApi'
 import {HandleApiError} from '../functions/HandleError';
-import '../css/accountBeheerTableRow.css';
+import '../css/liedBeheerTableRow.css';
 
 
 import Button from './Button'
 
 
-const LiedBeheerTableRow = ({token, id, username, role, removeRow}) => {
-    const [localUsername, setLocalUsername] = useState(username);
-    const [localRole, setLocalRole] = useState(role);
-    const [pass, setPass] = useState();
+const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
+    const [localNumber, setLocalNumber] = useState(number);
+    const [localTitle, setLocalTitle] = useState(title);
 
     const onUpdate = (id) => {
         const request = async () => {
             let requestData = new URLSearchParams();
-            // requestData.append('token', token);
-            // requestData.append('accountid', id);
-            // requestData.append('accountname', localUsername);
-            // requestData.append('password', pass);
-            // requestData.append('roleid', localRole);
+            requestData.append('token', token);
+            requestData.append('number', localNumber);
+            requestData.append('title', localTitle);
+            requestData.append('songid', id);
             const response = await OwnApi.post('/liedbeheer/update', requestData);
 
             if (response.status === 200 && response.data.status === 'success') {
@@ -37,11 +35,13 @@ const LiedBeheerTableRow = ({token, id, username, role, removeRow}) => {
     const onDelete = (id) => {
         const request = async () => {
             let requestData = new URLSearchParams();
-            // requestData.append('token', token);
-            // requestData.append('accountid', id);
+            requestData.append('token', token);
+            requestData.append('songid', id);
             const response = await OwnApi.post('/liedbeheer/delete', requestData);
 
             if (response.status === 200 && response.data.status === 'success') {
+                console.log(response.data);
+
                 removeRow(id);
             } else {
                 HandleApiError(response);
@@ -54,21 +54,6 @@ const LiedBeheerTableRow = ({token, id, username, role, removeRow}) => {
     }
 
     const onEdit = (id) => {
-        // const request = async () => {
-        //     let requestData = new URLSearchParams();
-        //     // requestData.append('token', token);
-        //     // requestData.append('accountid', id);
-        //     const response = await OwnApi.post('/liedbeheer/delete', requestData);
-
-        //     if (response.status === 200 && response.data.status === 'success') {
-        //         removeRow(id);
-        //     } else {
-        //         HandleApiError(response);
-        //     }
-        // }
-
-        // request();
-
         console.log(id);
     }
 
@@ -77,13 +62,10 @@ const LiedBeheerTableRow = ({token, id, username, role, removeRow}) => {
             <tr className='tableRowSpacer'></tr>
             <tr className='tableRow'>
                 <td>
-                    <input className='inputLiedBeheer username leftradius' value={localUsername} onChange={ e => {setLocalUsername(e.target.value) }}/>
+                    <input className='inputLiedBeheer song-number leftradius' value={localNumber} onChange={ e => {setLocalNumber(e.target.value) }} type='number'/>
                 </td>
                 <td>
-                    <input className='inputLiedBeheer pass' value={pass} onChange={ e => {setPass(e.target.value) }}/>
-                </td>
-                <td>
-                    <input className='inputLiedBeheer role' value={localRole} onChange={ e => {setLocalRole(e.target.value) }}/>
+                    <input className='inputLiedBeheer song-title' value={localTitle} onChange={ e => {setLocalTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
                     <Button className='info noRadius' callback={() => {onEdit(id)}}>Edit Song</Button>
@@ -99,4 +81,4 @@ const LiedBeheerTableRow = ({token, id, username, role, removeRow}) => {
     );
 }
 
-export default AccountBeheerTableRow;
+export default LiedBeheerTableRow;
