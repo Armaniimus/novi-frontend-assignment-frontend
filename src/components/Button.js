@@ -11,8 +11,6 @@ const Button = ({className, callback, children}) => {
     return (
         <button onClick={callback} className={`btn ${className}`}>{children}</button>
     );
-    
-    
 }
 
 export default Button;
