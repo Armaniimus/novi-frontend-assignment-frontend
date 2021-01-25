@@ -1,0 +1,26 @@
+.inputLiedBeheer.song-number {
+    width: 85px;
+}
+
+.inputLiedBeheer.song-title {
+    width: 240px;
+}
+
+.tableRow,
+.tableRow > td,
+.tableRow > td > input  {
+    height: 40px;
+}
+
+.tableRow > td {
+    margin: 0px;
+    padding: 0px;
+}
+
+.tableRowSpacer {
+    height: 20px;
+}
+
+.tableRow > td > input {
+    text-align: center;
+}
