@@ -7,46 +7,41 @@ import Button from './Button'
 
 
 const LiedBeheerTableRow = ({token, addRow}) => {
-    const [username, setUsername] = useState('');
-    const [role, setRole] = useState('');
-    const [password, setPassword] = useState('');
+    const [number, setNumber] = useState('');
+    const [title, setTitle] = useState('');
 
-    // const onCreate = () => {
-    //     const request = async () => {
-    //         let requestData = new URLSearchParams();
-    //         requestData.append('token', token);
-    //         requestData.append('accountname', username);
-    //         requestData.append('password', password);
-    //         requestData.append('roleid', role);
-    //         const response = await OwnApi.post('/accountbeheer/create', requestData);
+    const onCreate = () => {
+        const request = async () => {
+            let requestData = new URLSearchParams();
+            requestData.append('token', token);
+            requestData.append('number', number);
+            requestData.append('title', title);
+            const response = await OwnApi.post('/liedbeheer/create', requestData);
 
-    //         if (response.status === 200 && response.data.status === 'success') {
-    //             const accountInfo = response.data['accountInfo'];
+            if (response.status === 200 && response.data.status === 'success') {
+                console.log(response.data);
 
-    //             addRow( accountInfo.id, accountInfo.name, accountInfo.role_id );
-    //             setUsername('');
-    //             setPassword('');
-    //             setRole('');
-    //         } else {
-    //             HandleApiError(response);
-    //         }
-    //     }
+                addRow();
+                setNumber('');
+                setTitle('');
 
-    //     request();
-    // }
+            } else {
+                HandleApiError(response);
+            }
+        }
+
+        request();
+    }
 
     return (
         <React.Fragment>
             <tr className='tableRowSpacer'></tr>
             <tr className='tableRow'>
                 <td>
-                    <input className='inputAdminBeheer username leftradius'placeholder='your username'  value={username} onChange={ e => {setUsername(e.target.value) }}/>
+                    <input className='inputLiedBeheer song-number leftradius'placeholder='Song number'  value={number} onChange={ e => {setNumber(e.target.value) }} type='number' step='1'/>
                 </td>
                 <td>
-                    <input className='inputAdminBeheer pass' placeholder='your password' value={password} onChange={ e => {setPassword(e.target.value) }}/>
-                </td>
-                <td>
-                    <input className='inputAdminBeheer role' placeholder='your role'  value={role} onChange={ e => {setRole(e.target.value) }}/>
+                    <input className='inputLiedBeheer song-title' placeholder='Song name' value={title} onChange={ e => {setTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
                     <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>
@@ -56,4 +51,4 @@ const LiedBeheerTableRow = ({token, addRow}) => {
     );
 }
 
-export default AccountBeheerTableRow;
+export default LiedBeheerTableRow;
