@@ -3,6 +3,7 @@ button.btn {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
+    white-space: nowrap;
 }
 
 button.btn.danger {
@@ -40,13 +41,22 @@ button.btn.success:hover {
 }
 
 button.btn.info {
+    color: white;
+    background-color: #006699;
+    border: 1px solid #006699;
+}
 
+button.btn.info:hover {
+    background-color: #005588;
+    border: 1px solid #005588;
 }
 
 button.btn.noRadius {
     height: 40px;
     border-radius: 0px;
+    width: 100%;
 }
+
 button.btn.rightRadius {
     height: 40px;
     border-radius: 0px 5px 5px 0px;
