@@ -53,12 +53,7 @@ const Overview = ({token}) => {
         <React.Fragment>
             <div className='hor-center flexparent'>
                 <div className='flex-block'>
-                    
-                    <div className='hor-center flexparent'>
-                        <div className='flex-block'>
-                            <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
-                        </div>
-                    </div>
+                    <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     <form onSubmit={ e => { onFormSubmit(e) }}>
                         <input type='search' value={term} onChange={ (e) => setTerm(e.target.value) } />

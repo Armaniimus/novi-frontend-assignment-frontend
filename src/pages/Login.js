@@ -38,11 +38,7 @@ const Login = ({setGlobals}) => {
         <React.Fragment>
             <div className='hor-center flexparent'>
                 <div className='flex-block'>
-                    <div className='hor-center flexparent'>
-                        <div className='flex-block'>
-                            <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
-                        </div>
-                    </div>
+                    <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     <form onSubmit={onSubmit}>
                         <label htmlFor='login-username'>Username</label><br />

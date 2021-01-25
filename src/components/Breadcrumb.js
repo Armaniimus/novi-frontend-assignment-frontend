@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from './Link';
+import '../css/breadcrumb.css';
 
 const Breadcrumb = ({data, className}) => {    
     const rawCrumbs = [];
@@ -21,9 +22,11 @@ const Breadcrumb = ({data, className}) => {
     });
 
     return (
-        <React.Fragment>
-            {crumbs}
-        </React.Fragment>
+        <div className='hor-center flexparent breadcrumb-box'>
+            <div className='flex-block'>
+                {crumbs}
+            </div>
+        </div>
     );
 }
 

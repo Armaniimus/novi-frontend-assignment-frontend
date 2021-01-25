@@ -108,15 +108,10 @@ const AccountBeheer = ({token}) => {
         <React.Fragment>
             <div className='hor-center flexparent'>
                 <div className='flex-block'>
-                    <div className='hor-center flexparent'>
-                        <div className='flex-block'>
-                            <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
-                        </div>
-                    </div>
+                    <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
                     
                     {/* content */}
                     {renderedData}
-                        
                 </div>
             </div>
         </React.Fragment>
