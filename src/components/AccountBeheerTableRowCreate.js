@@ -40,13 +40,13 @@ const AccountBeheerTableRow = ({token, addRow}) => {
             <tr className='tableRowSpacer'></tr>
             <tr className='tableRow'>
                 <td>
-                    <input className='inputAdminBeheer username leftradius'placeholder='your username'  value={username} onChange={ e => {setUsername(e.target.value) }}/>
+                    <input className='inputAdminBeheer username leftradius'placeholder='your username'  value={username} onChange={ e => {setUsername(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <input className='inputAdminBeheer pass' placeholder='your password' value={password} onChange={ e => {setPassword(e.target.value) }}/>
+                    <input className='inputAdminBeheer pass' placeholder='your password' value={password} onChange={ e => {setPassword(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <input className='inputAdminBeheer role' placeholder='your role'  value={role} onChange={ e => {setRole(e.target.value) }}/>
+                    <input className='inputAdminBeheer role' placeholder='your role'  value={role} onChange={ e => {setRole(e.target.value) }} type='number' step='1'/>
                 </td>
                 <td>
                     <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>
