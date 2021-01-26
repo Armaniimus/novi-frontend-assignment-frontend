@@ -19,6 +19,11 @@
     height: 40px;
 }
 
+#liedTable th {
+    background-color: #004799;
+    color: white;
+}
+
 #liedTable thead tr > th,
 #liedTable td {
     border-right: solid 1px black;

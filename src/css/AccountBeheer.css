@@ -19,6 +19,11 @@
     height: 40px;
 }
 
+#accountTable th {
+    background-color: #004799;
+    color: white;
+}
+
 #accountTable thead tr > th,
 #accountTable td {
     border-right: solid 1px black;
