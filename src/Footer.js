@@ -4,7 +4,7 @@ import './css/footer.css';
 const Footer = () => {
     return (
         <footer>
-            <div className='copyright-line margin-auto'>&copy;De Hoopkaap</div>
+            <div className='copyright-line'>&copy;De Hoopkaap</div>
         </footer>
     );
 }
