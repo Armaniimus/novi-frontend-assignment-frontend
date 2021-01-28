@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
-import '../css/liedBeheer.css';
 
 import Breadcrumb from '../components/Breadcrumb';
-import TableHeader from '../components/TableHeader';
 import LiedBeheerTableRow from '../components/LiedBeheerTableRow';
 import LiedBeheerTableRowCreate from '../components/LiedBeheerTableRowCreate';
+import Table from '../components/Table';
 
 const breadcrumbData = [
     {
@@ -17,7 +16,6 @@ const breadcrumbData = [
 
 
 const LiedBeheer = ({token}) => {
-    const tableHeader = <TableHeader titles={['Number', 'Title', 'Actions']} colSpan={[1,1,3]}/>;
     const [renderedData, setRenderedData] = useState( <div>Loading...</div>);
     const [tableBody, setTableBody] = useState({});
 
@@ -58,14 +56,8 @@ const LiedBeheer = ({token}) => {
         if (tableBody[0] !== undefined) {
             setRenderedData(
                 <React.Fragment>
-                <table id='liedTable'>
-                    {tableHeader}
-                    <tbody>
-                        {tableBody}
-                        <LiedBeheerTableRowCreate token={token} addRow={addRow}/>
-                    </tbody>
-                </table>
-                <p>* if no password is given the password will not be changed</p>
+                    {tableBody}
+                    <LiedBeheerTableRowCreate token={token} addRow={addRow}/>
                 </React.Fragment>
             );
         }
@@ -89,7 +81,9 @@ const LiedBeheer = ({token}) => {
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     {/* content */}
-                    {renderedData}
+                    <Table titles={['Number', 'Title', 'Actions']} colSpans={[1,1,3]}>
+                        {renderedData}
+                    </Table>                    
                 </div>
             </div>
         </React.Fragment>
