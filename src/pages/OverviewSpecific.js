@@ -17,7 +17,7 @@ const breadcrumbData = [
 
 const OverviewSpecific = ({urlVars, token}) => {
     const [data, setData] = useState({});
-    const [renderedData, setRenderedData] = useState(<React.Fragment>Loading...</React.Fragment>);
+    const [renderedData, setRenderedData] = useState(null);
 
     useEffect( () => {
         const request = async () => {
@@ -33,6 +33,8 @@ const OverviewSpecific = ({urlVars, token}) => {
         }
         if (urlVars.id !== undefined) {
             request();
+        } else {
+            console.log('', urlVars);
         }
     }, [setData, token, urlVars]);
 

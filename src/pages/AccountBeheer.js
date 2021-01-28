@@ -18,7 +18,7 @@ const breadcrumbData = [
 const AccountBeheer = ({token}) => {
     // const tableHeader = <TableHeader />;
     
-    const [renderedData, setRenderedData] = useState( <div>Loading...</div>);
+    const [renderedData, setRenderedData] = useState(null);
     const [tableBody, setTableBody] = useState({});
 
     const request = async () => {

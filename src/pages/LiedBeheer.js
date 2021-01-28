@@ -16,7 +16,7 @@ const breadcrumbData = [
 
 
 const LiedBeheer = ({token}) => {
-    const [renderedData, setRenderedData] = useState( <div>Loading...</div>);
+    const [renderedData, setRenderedData] = useState(null);
     const [tableBody, setTableBody] = useState({});
 
     const request = async () => {

@@ -15,7 +15,7 @@ const breadcrumbData = [
 
 const Overview = ({token}) => {
     const [data, setData] = useState({});
-    const [renderedData, setRenderedData] = useState(<React.Fragment>Loading...</React.Fragment>);
+    const [renderedData, setRenderedData] = useState(null);
 
     useEffect( () => {
         const request = async () => {
@@ -52,9 +52,7 @@ const Overview = ({token}) => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
-                    <Table titles={['Number', 'Title', '']} colspan={[1,1,1]}>
-                        {renderedData}
-                    </Table>
+                    <Table titles={['Number', 'Title', '']} colspan={[1,1,1]}>{renderedData}</Table>
                 </div>
             </div>
         </React.Fragment>
