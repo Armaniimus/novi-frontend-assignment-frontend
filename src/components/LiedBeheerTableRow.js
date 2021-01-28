@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import OwnApi from '../apis/OwnApi'
 import {HandleApiError} from '../functions/HandleError';
-import '../css/liedBeheerTableRow.css';
-
 
 import Button from './Button'
+import Link from './Link';
+
+import '../css/liedBeheerTableRow.css';
 
 
 const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
@@ -53,10 +54,6 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
         console.log(id);
     }
 
-    const onEdit = (id) => {
-        console.log(id);
-    }
-
     return (
         <React.Fragment>
             <tr className='tableRowSpacer'></tr>
@@ -68,7 +65,9 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
                     <input className='inputLiedBeheer song-title' value={localTitle} onChange={ e => {setLocalTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <Button className='info noRadius' callback={() => {onEdit(id)}}>Edit Song</Button>
+                    <Link href={`/liedbeheer/${id}`} className=''>
+                        <Button className='info noRadius' >Edit Song</Button>
+                    </Link>
                 </td>
                 <td>
                     <Button className='warning noRadius' callback={() => {onUpdate(id)}}>Update</Button>
