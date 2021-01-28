@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
-import '../css/accountBeheer.css';
 
 import Breadcrumb from '../components/Breadcrumb';
-import TableHeader from '../components/TableHeader';
 import AccountBeheerTableRow from '../components/AccountBeheerTableRow';
 import AccountBeheerTableRowCreate from '../components/AccountBeheerTableRowCreate';
+import Table from '../components/Table';
 
 
 const breadcrumbData = [
@@ -17,7 +16,7 @@ const breadcrumbData = [
 ];
 
 const AccountBeheer = ({token}) => {
-    const tableHeader = <TableHeader titles={['Username', 'New-password*', 'Role', 'Actions']} colSpan={[1,1,1,2]}/>;
+    // const tableHeader = <TableHeader />;
     
     const [renderedData, setRenderedData] = useState( <div>Loading...</div>);
     const [tableBody, setTableBody] = useState({});
@@ -43,37 +42,11 @@ const AccountBeheer = ({token}) => {
         }
     }
 
-    const addRow = (id, username, role_id) => {
-        // console.log('beforeAdd', tableBody);
-
-        // const newData = tableBody;
-        // newData.push(<AccountBeheerTableRow key={id} token={token} id={id} username={username} role={role_id} />);
-        
-        // setTableBody(newData);
-        // console.log('afterAdd', tableBody);
-        // renderData();        
-
+    const addRow = () => {  
         request();
     }
 
-    const removeRow = (id) => {
-        // console.log('beforeRemove', tableBody);
-
-        // id = Math.floor(id);
-        // const newData = tableBody;
-        // for (let i=0; i<newData.length; i++) {
-        //     if ( Math.floor(newData[i].key) === id) {
-        //         newData.splice(i, 1);
-        //         break;
-        //     } else {
-        //         console.log(newData[i].key, id);
-        //     }
-        // }
-        
-        // setTableBody(newData);
-        // console.log('afterRemove', tableBody);
-        // renderData();
-
+    const removeRow = () => {
         request();
     }
 
@@ -81,14 +54,8 @@ const AccountBeheer = ({token}) => {
         if (tableBody[0] !== undefined) {
             setRenderedData(
                 <React.Fragment>
-                <table id='accountTable'>
-                    {tableHeader}
-                    <tbody>
-                        {tableBody}
-                        <AccountBeheerTableRowCreate token={token} addRow={addRow}/>
-                    </tbody>
-                </table>
-                <p>* if no password is given the password will not be changed</p>
+                    {tableBody}
+                    <AccountBeheerTableRowCreate token={token} addRow={addRow}/>
                 </React.Fragment>
             );
         }
@@ -110,8 +77,10 @@ const AccountBeheer = ({token}) => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
                     
-                    {/* content */}
-                    {renderedData}
+                    <Table titles={['Username', 'New-password*', 'Role', 'Actions']} colSpans={[1,1,1,2]}>
+                        {renderedData}
+                    </Table>
+                    <p>* if no password is given the password will not be changed</p>
                 </div>
             </div>
         </React.Fragment>
