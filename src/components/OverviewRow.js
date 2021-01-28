@@ -14,8 +14,7 @@ const OverviewRow = ({id, title, number}) => {
                     <Link href={`/overview/${id}`} className=''>
                         <Button className='info rightRadius'>bekijk</Button>
                     </Link>
-                </td>
-                    
+                </td>  
             </tr>
         </React.Fragment>
     );
