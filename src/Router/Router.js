@@ -12,6 +12,7 @@ import Login from '../pages/Login';
 import Logout from '../pages/Logout';
 import FourOFour from '../pages/FourOFour';
 import LiedBeheer from '../pages/LiedBeheer';
+import LiedBeheerSpecific from '../pages/LiedBeheerSpecific';
 import AccountBeheer from '../pages/AccountBeheer';
 import OverviewSpecific from '../pages/OverviewSpecific';
 
@@ -123,18 +124,13 @@ const Router = () => {
                         requiredLvl: 2
                     },
                     {
-                        path: '/accountbeheer/{id}',
-                        page: <AccountBeheer token={token}/>,
-                        requiredLvl: 2
-                    },
-                    {
                         path: '/liedbeheer',
                         page: <LiedBeheer token={token} />,
                         requiredLvl: 2
                     },
                     {
                         path: '/liedbeheer/{id}',
-                        page: <LiedBeheer token={token} />,
+                        page: <LiedBeheerSpecific token={token} urlVars={urlVars}/>,
                         requiredLvl: 2
                     },
                     {
