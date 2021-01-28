@@ -1,0 +1,24 @@
+thead.thead > tr {
+    height: 40px;
+}
+
+thead.thead > tr > th {
+    background-color: #004799;
+    color: white;
+    padding: 10px;
+}
+
+thead.thead > tr > th {
+    border-right: solid 1px black;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+thead.thead > tr > th:first-child {
+    border-left: solid 1px black;
+    border-radius: 5px 0px 0px 5px;
+}
+
+thead.thead > tr > th:last-child {
+    border-radius: 0px 7px 7px 0px;
+}

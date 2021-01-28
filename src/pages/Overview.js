@@ -3,8 +3,8 @@ import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
 
 import Breadcrumb from '../components/Breadcrumb';
-import OverviewTable from '../components/OverviewTable';
-import '../css/overview.css';
+import Table from '../components/Table';
+import OverviewRow from '../components/OverviewRow';
 
 const breadcrumbData = [
     {
@@ -14,14 +14,8 @@ const breadcrumbData = [
 ]
 
 const Overview = ({token}) => {
-    const [term, setTerm] = useState('');
     const [data, setData] = useState({});
     const [renderedData, setRenderedData] = useState(<React.Fragment>Loading...</React.Fragment>);
-
-    const onFormSubmit = (e) => {
-        e.preventDefault();
-        console.log(term);
-    }
 
     useEffect( () => {
         const request = async () => {
@@ -42,7 +36,10 @@ const Overview = ({token}) => {
     useEffect( () => {        
         if (data.status === 'success') {   
             if (data.songInfo !== undefined) {
-                setRenderedData( <OverviewTable data={data.songInfo} />);
+                const renderedRows = data.songInfo.map( ({id, title, number}) => {
+                    return <OverviewRow key={id} id={id} title={title} number={number}/>
+                });
+                setRenderedData( renderedRows );
             } else {
                 console.error('incorectdata gained', data);
             }
@@ -55,12 +52,9 @@ const Overview = ({token}) => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
-                    <form onSubmit={ e => { onFormSubmit(e) }}>
-                        <input type='search' value={term} onChange={ (e) => setTerm(e.target.value) } />
-                        <input type='submit' value='search'/>
-                    </form>
-                    
-                    {renderedData}
+                    <Table titles={['Number', 'Title', '']} colspan={[1,1,1]}>
+                        {renderedData}
+                    </Table>
                 </div>
             </div>
         </React.Fragment>
