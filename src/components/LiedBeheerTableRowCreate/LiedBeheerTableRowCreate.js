@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import OwnApi from '../apis/OwnApi'
-import '../css/accountBeheerTableRow.css';
-import {HandleApiError} from '../functions/HandleError';
+import OwnApi from '../../apis/OwnApi'
+import {HandleApiError} from '../../functions/HandleError';
 
-import Button from './Button'
+import Button from '../Button/Button'
 
+import RawStyles from '../LiedBeheerTableRow/LiedBeheerTableRow.module.css';
+import HandleModules from '../../functions/HandleModules';
+const styles = new HandleModules(RawStyles);
 
 const LiedBeheerTableRow = ({token, addRow}) => {
     const [number, setNumber] = useState('');
@@ -35,13 +37,13 @@ const LiedBeheerTableRow = ({token, addRow}) => {
 
     return (
         <React.Fragment>
-            <tr className='tableRowSpacer'></tr>
-            <tr className='tableRow'>
+            <tr className={RawStyles.tableRowSpacer}></tr>
+            <tr className={RawStyles.tableRow}>
                 <td>
-                    <input className='inputLiedBeheer song-number leftradius'placeholder='Song number'  value={number} onChange={ e => {setNumber(e.target.value) }} type='number' step='1'/>
+                    <input className={styles.get('inputLiedBeheer song-number leftradius')} placeholder='Song number'  value={number} onChange={ e => {setNumber(e.target.value) }} type='number' step='1'/>
                 </td>
                 <td>
-                    <input className='inputLiedBeheer song-title' placeholder='Song name' value={title} onChange={ e => {setTitle(e.target.value) }} type='text'/>
+                    <input className={styles.get('inputLiedBeheer song-title')} placeholder='Song name' value={title} onChange={ e => {setTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
                     <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>

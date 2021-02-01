@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import OwnApi from '../apis/OwnApi'
-import {HandleApiError} from '../functions/HandleError';
+import OwnApi from '../../apis/OwnApi'
+import {HandleApiError} from '../../functions/HandleError';
 
-import Button from './Button'
-import Link from './Link';
+import Button from '../Button/Button'
+import Link from '../Link/Link';
 
-import '../css/liedBeheerTableRow.css';
+import RawStyles from './LiedBeheerTableRow.module.css';
+import HandleModules from '../../functions/HandleModules';
+const styles = new HandleModules(RawStyles);
 
 
 const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
@@ -56,13 +58,13 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
 
     return (
         <React.Fragment>
-            <tr className='tableRowSpacer'></tr>
-            <tr className='tableRow'>
+            <tr className={RawStyles.tableRowSpacer}></tr>
+            <tr className={RawStyles.tableRow}>
                 <td>
-                    <input className='inputLiedBeheer song-number leftradius' value={localNumber} onChange={ e => {setLocalNumber(e.target.value) }} type='number'/>
+                    <input className={styles.get('inputLiedBeheer song-number leftradius')} value={localNumber} onChange={ e => {setLocalNumber(e.target.value) }} type='number'/>
                 </td>
                 <td>
-                    <input className='inputLiedBeheer song-title' value={localTitle} onChange={ e => {setLocalTitle(e.target.value) }} type='text'/>
+                    <input className={styles.get('inputLiedBeheer song-title')} value={localTitle} onChange={ e => {setLocalTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
                     <Link href={`/liedbeheer/${id}`} className=''>

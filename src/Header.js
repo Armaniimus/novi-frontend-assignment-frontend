@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Link from './components/Link';
+import Link from './components/Link/Link';
 import './css/header.css';
 
 const noLoginRender = () => {

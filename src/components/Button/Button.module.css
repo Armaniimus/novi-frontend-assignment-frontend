@@ -1,4 +1,4 @@
-button.btn {
+.btn {
     cursor: pointer;
     padding: 10px;
     border-radius: 5px;
@@ -6,58 +6,58 @@ button.btn {
     white-space: nowrap;
 }
 
-button.btn.danger {
+.danger {
     border: 1px solid #DC3545;
     background-color: #DC3545;
     color: white;
 }
 
-button.btn.danger:hover {
+.danger:hover {
     background-color: #B21F2D;
     border: 1px solid #B21F2D;
 }
 
-button.btn.warning {
+.warning {
     background-color: #FFC107;
     border: 1px solid #FFC107;
     
     color: #212529;
 }
 
-button.btn.warning:hover {
+.warning:hover {
     background-color: #E0A800;
     border: 1px solid #E0A800;
 }
 
-button.btn.success {
+.success {
     color: white;
     background-color: #28a745;
     border: 1px solid #28a745;
 }
 
-button.btn.success:hover {
+.success:hover {
     background-color: #1e7e34;
     border: 1px solid #1e7e34;
 }
 
-button.btn.info {
+.info {
     color: white;
     background-color: #006699;
     border: 1px solid #006699;
 }
 
-button.btn.info:hover {
+.info:hover {
     background-color: #005588;
     border: 1px solid #005588;
 }
 
-button.btn.noRadius {
+.noRadius {
     height: 40px;
     border-radius: 0px;
     width: 100%;
 }
 
-button.btn.rightRadius {
+.rightRadius {
     height: 40px;
     border-radius: 0px 5px 5px 0px;
     width: 100%;

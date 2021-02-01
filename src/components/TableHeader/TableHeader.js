@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/tableHeader.css';
+import RawStyles from './TableHeader.module.css';
 
 const TableHeader = ({titles, colSpans}) => {
     const renderedItems = [];
@@ -14,7 +14,7 @@ const TableHeader = ({titles, colSpans}) => {
     }
 
     return (
-        <thead className='thead'>
+        <thead className={RawStyles.thead}>
             <tr>
                 {renderedItems}
             </tr>

@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleLoginError} from '../functions/HandleError';
 
-import Breadcrumb from '../components/Breadcrumb';
-import Button from '../components/Button'
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import Button from '../components/Button/Button'
 
 const breadcrumbData = [
     {

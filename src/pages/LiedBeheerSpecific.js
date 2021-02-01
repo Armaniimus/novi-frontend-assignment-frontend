@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
 
-import Breadcrumb from '../components/Breadcrumb';
-import Button from '../components/Button';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import Button from '../components/Button/Button';
 import '../css/liedBeheerSpecific.css';
 
 const breadcrumbData = [

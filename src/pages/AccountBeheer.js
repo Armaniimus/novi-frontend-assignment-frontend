@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
 
-import Breadcrumb from '../components/Breadcrumb';
-import AccountBeheerTableRow from '../components/AccountBeheerTableRow';
-import AccountBeheerTableRowCreate from '../components/AccountBeheerTableRowCreate';
-import Table from '../components/Table';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import AccountBeheerTableRow from '../components/AccountBeheerTableRow/AccountBeheerTableRow';
+import AccountBeheerTableRowCreate from '../components/AccountBeheerTableRowCreate/AccountBeheerTableRowCreate';
+import Table from '../components/Table/Table';
 
 
 const breadcrumbData = [

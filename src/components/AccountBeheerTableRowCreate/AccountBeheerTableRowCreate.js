@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import OwnApi from '../apis/OwnApi'
-import '../css/accountBeheerTableRow.css';
-import {HandleApiError} from '../functions/HandleError';
+import OwnApi from '../../apis/OwnApi'
+import {HandleApiError} from '../../functions/HandleError';
 
-import Button from './Button'
+import Button from '../Button/Button'
 
+import RawStyles from '../AccountBeheerTableRow/AccountBeheerTableRow.module.css';
+import HandleModules from '../../functions/HandleModules';
+const styles = new HandleModules(RawStyles);
 
 const AccountBeheerTableRow = ({token, addRow}) => {
     const [username, setUsername] = useState('');
@@ -37,16 +39,16 @@ const AccountBeheerTableRow = ({token, addRow}) => {
 
     return (
         <React.Fragment>
-            <tr className='tableRowSpacer'></tr>
-            <tr className='tableRow'>
+            <tr className={RawStyles.tableRowSpacer}></tr>
+            <tr className={RawStyles.tableRow}>
                 <td>
-                    <input className='inputAdminBeheer username leftradius'placeholder='Username'  value={username} onChange={ e => {setUsername(e.target.value) }} type='text'/>
+                    <input className={styles.get('inputAdminBeheer username leftradius')} placeholder='Username'  value={username} onChange={ e => {setUsername(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <input className='inputAdminBeheer pass' placeholder='Password' value={password} onChange={ e => {setPassword(e.target.value) }} type='text'/>
+                    <input className={styles.get('inputAdminBeheer pass')} placeholder='Password' value={password} onChange={ e => {setPassword(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <input className='inputAdminBeheer role' placeholder='Role'  value={role} onChange={ e => {setRole(e.target.value) }} type='number' step='1'/>
+                    <input className={styles.get('inputAdminBeheer role')} placeholder='Role'  value={role} onChange={ e => {setRole(e.target.value) }} type='number' step='1'/>
                 </td>
                 <td>
                     <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>

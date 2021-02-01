@@ -1,15 +1,16 @@
 import React from 'react';
-import Link from './Link';
-import Button from './Button';
-import '../css/overviewRow.css';
+import Link from '../Link/Link';
+import Button from '../Button/Button';
+
+import RawStyles from './OverviewRow.module.css';
 
 const OverviewRow = ({id, title, number}) => {
     return (
         <React.Fragment>
-            <tr className='tableRowSpacer'></tr>
+            <tr className={RawStyles.tableRowSpacer}></tr>
             <tr>
-                <td className='td-text'>{number}</td>
-                <td className='td-text'>{title}</td>
+                <td className={RawStyles['td-text']}>{number}</td>
+                <td className={RawStyles['td-text']}>{title}</td>
                 <td>
                     <Link href={`/overview/${id}`} className=''>
                         <Button className='info rightRadius'>bekijk</Button>

@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import OwnApi from '../apis/OwnApi'
-import {HandleApiError} from '../functions/HandleError';
-import '../css/accountBeheerTableRow.css';
+import OwnApi from '../../apis/OwnApi'
+import {HandleApiError} from '../../functions/HandleError';
 
+import Button from '../Button/Button'
 
-import Button from './Button'
-
+import RawStyles from './AccountBeheerTableRow.module.css';
+import HandleModules from '../../functions/HandleModules';
+const styles = new HandleModules(RawStyles);
 
 const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
     const [localUsername, setLocalUsername] = useState(username);
@@ -55,16 +56,16 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
 
     return (
         <React.Fragment>
-            <tr className='tableRowSpacer'></tr>
-            <tr className='tableRow'>
+            <tr className={RawStyles.tableRowSpacer}></tr>
+            <tr className={RawStyles.tableRow}>
                 <td>
-                    <input className='inputAdminBeheer username leftradius' value={localUsername} onChange={ e => {setLocalUsername(e.target.value) }}/>
+                    <input className={styles.get('getinputAdminBeheer username leftradius')} value={localUsername} onChange={ e => {setLocalUsername(e.target.value) }}/>
                 </td>
                 <td>
-                    <input className='inputAdminBeheer pass' value={pass} onChange={ e => {setPass(e.target.value) }}/>
+                    <input className={styles.get('inputAdminBeheer pass')} value={pass} onChange={ e => {setPass(e.target.value) }}/>
                 </td>
                 <td>
-                    <input className='inputAdminBeheer role' value={localRole} onChange={ e => {setLocalRole(e.target.value) }}/>
+                    <input className={styles.get('inputAdminBeheer role')} value={localRole} onChange={ e => {setLocalRole(e.target.value) }}/>
                 </td>
                 <td>
                     <Button className='warning noRadius' callback={() => {onUpdate(id)}}>Update</Button>

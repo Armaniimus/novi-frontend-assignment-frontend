@@ -1,6 +1,7 @@
 import React from 'react';
-import Link from './Link';
-import '../css/breadcrumb.css';
+import Link from '../Link/Link';
+
+import RawStyles from './Breadcrumb.module.css';
 
 const Breadcrumb = ({data, className}) => {    
     const rawCrumbs = [];
@@ -22,7 +23,7 @@ const Breadcrumb = ({data, className}) => {
     });
 
     return (
-        <div className='hor-center flexparent breadcrumb-box'>
+        <div className={RawStyles['breadcrumb-box'] + ' hor-center flexparent'}>
             <div className='flex-block'>
                 {crumbs}
             </div>

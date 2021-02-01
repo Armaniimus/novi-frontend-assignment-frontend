@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
 
-import Breadcrumb from '../components/Breadcrumb';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import '../css/liedBeheerSpecific.css';
 
 const breadcrumbData = [

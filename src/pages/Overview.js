@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
 
-import Breadcrumb from '../components/Breadcrumb';
-import Table from '../components/Table';
-import OverviewRow from '../components/OverviewRow';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import Table from '../components/Table/Table';
+import OverviewRow from '../components/OverviewRow/OverviewRow';
 
 const breadcrumbData = [
     {

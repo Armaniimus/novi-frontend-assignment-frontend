@@ -1,6 +1,7 @@
 import React from 'react';
-import TableHeader from '../components/TableHeader';
-import '../css/table.css';
+import TableHeader from '../TableHeader/TableHeader';
+
+import RawStyles from './Table.module.css';
 
 const Table = ({titles, colSpans, className, children}) => {
     if (className === undefined) {
@@ -14,9 +15,9 @@ const Table = ({titles, colSpans, className, children}) => {
     }
 
     return(
-        <table className={className}>
+        <table className={RawStyles.table}>
             <TableHeader titles={titles} colSpans={colSpans}/>
-            <tbody className='tbody'>{children}</tbody>
+            <tbody className={RawStyles.tbody}>{children}</tbody>
         </table>
     ); 
 }

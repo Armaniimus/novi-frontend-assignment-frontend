@@ -1,55 +1,59 @@
-table.table {
+.table {
     /* border-collapse: collapse; */
     border-spacing: 0;
 }
 
-tbody.tbody input {
+.tbody input {
     border-width: 0px;
 }
 
-tbody.tbody input:focus {
+.tbody input:focus {
     border-width: 0.3px;
 }
 
 /* text align */
-tbody.tbody td,
-tbody.tbody td > input {
+.tbody td,
+.tbody input {
     text-align: center;
 }
 
 /* row heights */
-tbody.tbody > tr,
-tbody.tbody > tr > td,
-tbody.tbody > tr > td > input {
+.tbody tr,
+.tbody td,
+.tbody input {
     height: 40px;
     margin: 0px;
     padding: 0px;
 }
 
-tbody.tbody > tr > .td-text {
+.td-text {
     padding: 5px;
 }
 
-tbody.tbody tr.tableRowSpacer {
+.tableRowSpacer {
     height: 20px;
 }
 
 /* Borders Around */
-tbody.tbody .leftradius {
+.leftradius {
     border-radius: 5px 0px 0px 5px;
 }
 
-tbody.tbody td {
+.tbody td {
     border-color: black;
     border-style: solid;
     border-width: 1px 1px 1px 0;
 }
 
-tbody.tbody tr > td:first-child {
+.tbody td:first-child {
     border-left: solid 1px black;
     border-radius: 5px 0px 0px 5px;
 }
 
-tbody.tbody tr > td:last-child {
+.tbody td:last-child {
     border-radius: 0px 7px 7px 0px;
+}
+
+.tbody td:first-child input {
+    border-radius: 5px 0px 0px 5px;
 }
