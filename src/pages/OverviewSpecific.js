@@ -55,9 +55,7 @@ const OverviewSpecific = () => {
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     <div className='edit-container'>
-                        <div className='blue-bar'>
-                            <span>Number: {songNumber}</span>
-                        </div>
+                        <BlueBar>Number: {songNumber}</BlueBar>
                         <h2 className='edit-title'>{songTitle}</h2>
                         <div className='song-input'>
                             <textarea 
