@@ -3,8 +3,8 @@ import Compare from '../functions/Compare';
 
 import DispatchPage from './DispatchPage';
 
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 import Overview from '../pages/Overview';
 import Home from '../pages/Home';

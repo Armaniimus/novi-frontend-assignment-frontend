@@ -22,13 +22,3 @@ header {
 .nav-list {
     padding: 15px;
 }
-
-.nav-link {
-    padding: 5px;
-    text-decoration: none;
-    color:white;
-}
-
-.logout-link {
-    padding-left: 60px;
-}
