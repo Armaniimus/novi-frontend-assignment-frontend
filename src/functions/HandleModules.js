@@ -6,7 +6,9 @@ export default class HandleModules {
     }
 
     get(className) {
-        if (this.styles !== null) {
+        if (className === undefined) {
+            console.error('no className was given')
+        } else if (this.styles !== null) {
             let classNames = '';
             const classArray = className.split(' ');
             for (let i=0; i<classArray.length; i++) {
