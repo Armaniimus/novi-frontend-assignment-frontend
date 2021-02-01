@@ -38,7 +38,7 @@ const DispatchPage = ( {requiredLvl, inputPage} ) => {
     }, [inputPage, requiredLvl]);
 
     return (
-        <main className='container main'>
+        <main className='main'>
             {page}
         </main>
     );
