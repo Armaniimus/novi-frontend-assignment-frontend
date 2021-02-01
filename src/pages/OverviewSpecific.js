@@ -3,6 +3,7 @@ import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
 
 import Breadcrumb from '../components/Breadcrumb';
+import '../css/liedBeheerSpecific.css';
 
 const breadcrumbData = [
     {
@@ -16,8 +17,9 @@ const breadcrumbData = [
 ];
 
 const OverviewSpecific = ({urlVars, token}) => {
-    const [data, setData] = useState({});
-    const [renderedData, setRenderedData] = useState(null);
+    const [songNumber, setSongNumber] = useState('');
+    const [songTitle, setSongTitle] = useState('');
+    const [songText, setSongText] = useState('');
 
     useEffect( () => {
         const request = async () => {
@@ -25,8 +27,11 @@ const OverviewSpecific = ({urlVars, token}) => {
             requestData.append('token', token);
             const response = await OwnApi.post(`/overview/${urlVars.id}`, requestData);
 
-            if (response.status === 200 && response.data.status === 'success') {
-                setData(response.data);
+            if (response.status === 200 && response.data.status === 'success' && response.data.songInfo !== undefined) {
+                const info = response.data.songInfo;
+                setSongNumber(info.number);
+                setSongTitle(info.title);
+                setSongText(info.songText);
             } else {
                 HandleApiError(response);
             }
@@ -36,24 +41,7 @@ const OverviewSpecific = ({urlVars, token}) => {
         } else {
             console.log('', urlVars);
         }
-    }, [setData, token, urlVars]);
-
-    useEffect( () => {
-        if (data.status === 'success') {
-            if (data.songInfo !== undefined) {
-                setRenderedData(
-                    <React.Fragment>
-                        <div>{data.songInfo.id}</div>
-                        <div>{data.songInfo.number}</div>
-                        <div>{data.songInfo.title}</div>
-                        <div>{data.songInfo.songText}</div>
-                    </React.Fragment>
-                );
-            } else {
-                console.error('songinfo undefined', data);
-            }
-        }
-    }, [data, setRenderedData]);
+    }, [token, urlVars]);
 
     return (
         <React.Fragment>
@@ -61,7 +49,19 @@ const OverviewSpecific = ({urlVars, token}) => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
-                    {renderedData}
+                    <div className='edit-container'>
+                        <div className='blue-bar'>
+                            <span>Number: {songNumber}</span>
+                        </div>
+                        <h2 className='edit-title'>{songTitle}</h2>
+                        <div className='song-input'>
+                            <textarea 
+                                type='text' 
+                                defaultValue={songText}
+                                disabled
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </React.Fragment>
