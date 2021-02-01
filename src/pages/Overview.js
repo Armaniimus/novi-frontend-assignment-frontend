@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
+import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Table from '../components/Table/Table';
@@ -13,7 +14,10 @@ const breadcrumbData = [
     },
 ]
 
-const Overview = ({token}) => {
+const Overview = () => {
+    // const token = window.$name;
+    const token = Globals.getToken();
+
     const [data, setData] = useState({});
     const [renderedData, setRenderedData] = useState(null);
 

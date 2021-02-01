@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+
 import OwnApi from '../apis/OwnApi';
 import {HandleLoginError} from '../functions/HandleError';
+import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Button from '../components/Button/Button'
@@ -12,7 +14,7 @@ const breadcrumbData = [
     }
 ];
 
-const Login = ({setGlobals}) => {
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,13 +26,15 @@ const Login = ({setGlobals}) => {
         const response = await OwnApi.post('/login', requestData);
 
         if (response.status === 200 && response.data.status === 'success') {
-            setGlobals.setToken(response.data.token);
-
+            Globals.setToken(response.data.token);
+            
             if (response.data.role === 'user') {
-                setGlobals.setAccountLvl(1);
+                Globals.setAccountLvl(1);
             } else if (response.data.role === 'admin') {
-                setGlobals.setAccountLvl(2);
+                Globals.setAccountLvl(2);
             }
+
+            Globals.reload();
         } else {
             HandleLoginError(response);
         }

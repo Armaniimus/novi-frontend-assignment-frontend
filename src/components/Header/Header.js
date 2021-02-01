@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import Globals from '../../functions/Globals';
+
 import Link from '../Link/Link';
 import RawStyles from './Header.module.css';
 
@@ -8,7 +10,7 @@ const noLoginRender = () => {
 
 const userRender = () => {
     return (
-        <nav className='nav-list'>
+        <nav className={RawStyles['nav-list']}>
             <Link href='/' className='nav-link'>Overview</Link>
             <Link href='/logout' className='nav-link logout-link'>Logout</Link>
         </nav>
@@ -34,7 +36,9 @@ const getRenderedHeader = (accountLvl) => {
 }
 
 
-const Header = ({accountLvl}) => {
+const Header = () => {
+    const accountLvl = Globals.getAccountLvl();
+
     const [renderedElement, setRenderedElement] = useState( <React.Fragment/> );
 
     useEffect( () => {
@@ -46,7 +50,7 @@ const Header = ({accountLvl}) => {
     return (
         <header>
             <h1 className={RawStyles['nav-logo']}>
-                <Link href='/' className={RawStyles['nav-link']}>ZingApp</Link>
+                <Link href='/' className='nav-link'>ZingApp</Link>
             </h1>
             {renderedElement}
         </header>

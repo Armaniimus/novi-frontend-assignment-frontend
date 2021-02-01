@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
+import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import '../css/liedBeheerSpecific.css';
@@ -16,7 +17,9 @@ const breadcrumbData = [
     }
 ];
 
-const OverviewSpecific = ({urlVars, token}) => {
+const OverviewSpecific = ({urlVars}) => {
+    const token = Globals.getToken();
+
     const [songNumber, setSongNumber] = useState('');
     const [songTitle, setSongTitle] = useState('');
     const [songText, setSongText] = useState('');

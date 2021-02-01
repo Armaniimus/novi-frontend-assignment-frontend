@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
+import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import LiedBeheerTableRow from '../components/LiedBeheerTableRow/LiedBeheerTableRow';
@@ -15,7 +16,10 @@ const breadcrumbData = [
 ];
 
 
-const LiedBeheer = ({token}) => {
+const LiedBeheer = () => {
+    // const token = window.$name;
+    const token = Globals.getToken();
+
     const [renderedData, setRenderedData] = useState(null);
     const [tableBody, setTableBody] = useState({});
 

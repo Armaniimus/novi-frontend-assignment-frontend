@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
+import Globals from '../functions/Globals';
 
-const Logout = ({setGlobals}) => {
+const Logout = () => {
     useEffect( () => {
-        setGlobals.setToken(0);
-        setGlobals.setAccountLvl(0);
+        Globals.setToken('');
+        Globals.setAccountLvl(0);
+        Globals.reload();
     
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, []);
     return null;
 }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Compare from '../functions/Compare';
+import Globals from '../functions/Globals';
 
 import DispatchPage from './DispatchPage';
 
@@ -58,22 +59,22 @@ const Router = () => {
     const [debounceRouteCheck, setDebounceRouteCheck] = useState(0);
 
     const [routes, setRoutes] = useState([]);
-    const [token, setToken] = useState(0);
-    const [accountLvl, setAccountLvl] = useState(0);
+    const [reload, setReload] = useState(0);
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
     const [urlVars, setUrlVars] = useState({});
     const [routeParams, setRouteParams] = useState({page: null, requiredLvl: 0});
     const [renderedDispatchPage, setRenderedDispatchPage] = useState(null);
+    Globals.setReloadFunc( setReload );
 
-    const setGlobals = {
-        setAccountLvl   : setAccountLvl,
-        setToken        : setToken
-    }
+
+    useEffect( () => {
+        console.log('reloadUpdated', reload);
+    }, [reload])
 
     //set a default value
     useEffect( () => {
         setRouteParams({
-            page: <Login setGlobals={setGlobals}/>, 
+            page: <Login />, 
             requiredLvl: 0
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -90,7 +91,7 @@ const Router = () => {
         return () => {
             window.removeEventListener('popstate', onLocationChange);
         }
-    }, [currentPath, accountLvl, token, urlVars]);
+    }, [currentPath, reload, urlVars]);
 
 
     useEffect( () => {
@@ -100,37 +101,37 @@ const Router = () => {
                 setRoutes([
                     {
                         path: '/',
-                        page: <Home token={token} accountLvl={accountLvl} setGlobals={setGlobals}/>,
+                        page: <Home/>,
                         requiredLvl: 0
                     },
                     {
                         path: '/logout',
-                        page: <Logout setGlobals={setGlobals}/>,
+                        page: <Logout/>,
                         requiredLvl: 1
                     },
                     {
                         path: '/overview',
-                        page: <Overview token={token}/>,
+                        page: <Overview/>,
                         requiredLvl: 1
                     },
                     {
                         path: '/overview/{id}',
-                        page: <OverviewSpecific token={token} urlVars={urlVars}/>,
+                        page: <OverviewSpecific urlVars={urlVars}/>,
                         requiredLvl: 1
                     },
                     {
                         path: '/accountbeheer',
-                        page: <AccountBeheer token={token}/>,
+                        page: <AccountBeheer/>,
                         requiredLvl: 2
                     },
                     {
                         path: '/liedbeheer',
-                        page: <LiedBeheer token={token} />,
+                        page: <LiedBeheer />,
                         requiredLvl: 2
                     },
                     {
                         path: '/liedbeheer/{id}',
-                        page: <LiedBeheerSpecific token={token} urlVars={urlVars}/>,
+                        page: <LiedBeheerSpecific urlVars={urlVars}/>,
                         requiredLvl: 2
                     },
                     {
@@ -143,7 +144,7 @@ const Router = () => {
         );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token, urlVars, accountLvl] );
+    }, [urlVars, reload] );
 
     useEffect( () => {
         clearTimeout(debounceRouteCheck);
@@ -175,21 +176,21 @@ const Router = () => {
             } , 50)
         );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentPath, accountLvl, routes]);
+    }, [currentPath, routes, reload]);
 
     useEffect( () => {
         clearTimeout(debounceDispatch);
         setDebounceDispatch( 
             setTimeout(() => {
-                setRenderedDispatchPage(<DispatchPage accountLvl={accountLvl} requiredLvl={routeParams.requiredLvl} setGlobals={setGlobals} inputPage={routeParams.page} />);
+                setRenderedDispatchPage(<DispatchPage requiredLvl={routeParams.requiredLvl} inputPage={routeParams.page} />);
             }, 100)
         );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [accountLvl, routeParams]);
+    }, [routeParams, reload]);
 
     return (
         <React.Fragment>
-            <Header accountLvl={accountLvl} />
+            <Header />
             {renderedDispatchPage}
             <Footer />
         </React.Fragment>

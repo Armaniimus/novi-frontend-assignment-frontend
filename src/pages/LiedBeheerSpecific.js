@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import OwnApi from '../apis/OwnApi';
 import {HandleApiError} from '../functions/HandleError';
+import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Button from '../components/Button/Button';
@@ -37,7 +38,9 @@ const onUpdate = (token, id, songtext) => {
     request();
 }
 
-const LiedBeheerSpecific = ({urlVars, token}) => {
+const LiedBeheerSpecific = ({urlVars}) => {
+    const token = Globals.getToken();
+
     const [songId, setSongId] = useState('');
     const [songNumber, setSongNumber] = useState('');
     const [songTitle, setSongTitle] = useState('');
