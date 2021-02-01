@@ -5,6 +5,7 @@ import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Button from '../components/Button/Button';
+import BlueBar from '../components/BlueBar/BlueBar'; 
 import '../css/liedBeheerSpecific.css';
 
 const breadcrumbData = [
@@ -77,9 +78,7 @@ const LiedBeheerSpecific = ({urlVars}) => {
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     <div className='edit-container'>
-                        <div className='blue-bar'>
-                            <span>Number: {songNumber}</span>
-                        </div>
+                        <BlueBar>Number: {songNumber}</BlueBar>
                         <h2 className='edit-title'>{songTitle}</h2>
                         <div className='song-input'>
                             <textarea 
