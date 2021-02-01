@@ -59,7 +59,7 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
             <tr className={RawStyles.tableRowSpacer}></tr>
             <tr className={RawStyles.tableRow}>
                 <td>
-                    <input className={styles.get('getinputAdminBeheer username leftradius')} value={localUsername} onChange={ e => {setLocalUsername(e.target.value) }}/>
+                    <input className={styles.get('inputAdminBeheer username leftradius')} value={localUsername} onChange={ e => {setLocalUsername(e.target.value) }}/>
                 </td>
                 <td>
                     <input className={styles.get('inputAdminBeheer pass')} value={pass} onChange={ e => {setPass(e.target.value) }}/>
