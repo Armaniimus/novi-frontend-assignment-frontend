@@ -35,6 +35,9 @@ const Login = () => {
             }
 
             Globals.reload();
+            const navEvent = new PopStateEvent('popstate');
+            window.history.pushState({}, '', '/overview');
+            window.dispatchEvent(navEvent);
         } else {
             HandleLoginError(response);
         }
