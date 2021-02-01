@@ -35,10 +35,8 @@ const getRenderedHeader = (accountLvl) => {
     else                        { return <React.Fragment/>  }
 }
 
-
 const Header = () => {
     const accountLvl = Globals.getAccountLvl();
-
     const [renderedElement, setRenderedElement] = useState( <React.Fragment/> );
 
     useEffect( () => {
