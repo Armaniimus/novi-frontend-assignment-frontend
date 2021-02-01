@@ -39,8 +39,9 @@ const onUpdate = (token, id, songtext) => {
     request();
 }
 
-const LiedBeheerSpecific = ({urlVars}) => {
+const LiedBeheerSpecific = () => {
     const token = Globals.getToken();
+    const urlVars = Globals.getUrlVars();
 
     const [songId, setSongId] = useState('');
     const [songNumber, setSongNumber] = useState('');

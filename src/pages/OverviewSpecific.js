@@ -4,6 +4,7 @@ import {HandleApiError} from '../functions/HandleError';
 import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import BlueBar from '../components/BlueBar/BlueBar';
 import '../css/liedBeheerSpecific.css';
 
 const breadcrumbData = [
@@ -17,8 +18,9 @@ const breadcrumbData = [
     }
 ];
 
-const OverviewSpecific = ({urlVars}) => {
+const OverviewSpecific = () => {
     const token = Globals.getToken();
+    const urlVars = Globals.getUrlVars();
 
     const [songNumber, setSongNumber] = useState('');
     const [songTitle, setSongTitle] = useState('');
