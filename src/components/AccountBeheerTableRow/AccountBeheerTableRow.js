@@ -11,7 +11,7 @@ const styles = new HandleModules(RawStyles);
 const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
     const [localUsername, setLocalUsername] = useState(username);
     const [localRole, setLocalRole] = useState(role);
-    const [pass, setPass] = useState();
+    const [pass, setPass] = useState('');
 
     const onUpdate = (id) => {
         const request = async () => {
