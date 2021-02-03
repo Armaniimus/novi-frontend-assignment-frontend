@@ -46,7 +46,7 @@ const LiedBeheerTableRow = ({token, addRow}) => {
                     <input className={styles.get('inputLiedBeheer song-title')} placeholder='Lied titel' value={title} onChange={ e => {setTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>
+                    <Button className='success rightRadius' callback={() => {onCreate()}}>Creëer</Button>
                 </td>
             </tr>
         </React.Fragment>
