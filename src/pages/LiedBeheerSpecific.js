@@ -14,7 +14,7 @@ const breadcrumbData = [
         link: '/liedbeheer'
     }, 
     {
-        name: 'item',
+        name: 'Bewerk liedtekst pagina',
         link: ''
     }
 ];
