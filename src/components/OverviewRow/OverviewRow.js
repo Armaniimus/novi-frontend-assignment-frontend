@@ -13,7 +13,7 @@ const OverviewRow = ({id, title, number}) => {
                 <td className={RawStyles['td-text']}>{title}</td>
                 <td>
                     <Link href={`/overview/${id}`} className=''>
-                        <Button className='info rightRadius'>bekijk</Button>
+                        <Button className='info rightRadius'>Bekijk</Button>
                     </Link>
                 </td>  
             </tr>
