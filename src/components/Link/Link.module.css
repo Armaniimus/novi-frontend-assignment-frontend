@@ -7,3 +7,7 @@
 .logout-link {
     padding-left: 60px;
 }
+
+.nav-link:hover {
+    color: #ddd;
+}
