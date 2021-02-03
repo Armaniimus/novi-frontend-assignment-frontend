@@ -51,7 +51,7 @@ const AccountBeheerTableRow = ({token, addRow}) => {
                     <input className={styles.get('inputAdminBeheer role')} placeholder='Rol'  value={role} onChange={ e => {setRole(e.target.value) }} type='number' min='1' max='2' step='1'/>
                 </td>
                 <td>
-                    <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>
+                    <Button className='success rightRadius' callback={() => {onCreate()}}>Creëer</Button>
                 </td>
             </tr>
         </React.Fragment>
