@@ -11,7 +11,7 @@ const noLoginRender = () => {
 const userRender = () => {
     return (
         <nav className={RawStyles['nav-list']}>
-            <Link href='/' className='nav-link'>Overview</Link>
+            <Link href='/' className='nav-link'>Overzicht</Link>
             <Link href='/logout' className='nav-link logout-link'>Logout</Link>
         </nav>
     );
@@ -20,7 +20,7 @@ const userRender = () => {
 const adminRender = () => {
     return (
         <nav className={RawStyles['nav-list']}>
-            <Link href='/overview' className='nav-link'>Overview</Link>
+            <Link href='/overview' className='nav-link'>Overzicht</Link>
             <Link href='/accountbeheer' className='nav-link'> Account Beheer</Link>
             <Link href='/liedbeheer' className='nav-link'>Lied Beheer</Link>
             <Link href='/logout' className='nav-link logout-link'>Logout</Link>
