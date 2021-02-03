@@ -23,7 +23,7 @@ const adminRender = () => {
             <Link href='/overview' className='nav-link'>Overzicht</Link>
             <Link href='/accountbeheer' className='nav-link'> Account Beheer</Link>
             <Link href='/liedbeheer' className='nav-link'>Lied Beheer</Link>
-            <Link href='/logout' className='nav-link logout-link'>Logout</Link>
+            <Link href='/logout' className='nav-link logout-link'>Uitloggen</Link>
         </nav>
     );
 }
