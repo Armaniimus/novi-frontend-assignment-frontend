@@ -9,7 +9,7 @@ import OverviewRow from '../components/OverviewRow/OverviewRow';
 
 const breadcrumbData = [
     {
-        name: 'Overview',
+        name: 'Overzicht',
         link: ''
     },
 ]
@@ -56,7 +56,7 @@ const Overview = () => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
-                    <Table titles={['Number', 'Title', '']} colspan={[1,1,1]}>{renderedData}</Table>
+                    <Table titles={['Nummer', 'Titel', '']} colspan={[1,1,1]}>{renderedData}</Table>
                 </div>
             </div>
         </React.Fragment>
