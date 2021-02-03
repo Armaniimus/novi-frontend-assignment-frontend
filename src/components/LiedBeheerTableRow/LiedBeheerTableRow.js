@@ -68,7 +68,7 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
                 </td>
                 <td>
                     <Link href={`/liedbeheer/${id}`} className=''>
-                        <Button className='info noRadius' >Edit Song</Button>
+                        <Button className='info noRadius' >Bewerk liedtekst</Button>
                     </Link>
                 </td>
                 <td>
