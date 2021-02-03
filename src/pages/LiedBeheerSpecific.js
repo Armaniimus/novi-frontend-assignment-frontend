@@ -14,7 +14,7 @@ const breadcrumbData = [
         link: '/liedbeheer'
     }, 
     {
-        name: 'Bewerk liedtekst pagina',
+        name: 'Bewerk-liedtekst-pagina',
         link: ''
     }
 ];
@@ -94,7 +94,7 @@ const LiedBeheerSpecific = () => {
                             />
                         </div>
                     </div>    
-                    <Button className='info' callback={() => {onUpdate(token, songId, songText)}}>Update songtext</Button>               
+                    <Button className='warning' callback={() => {onUpdate(token, songId, songText)}}>Update songtext</Button>               
 
 
                 </div>
