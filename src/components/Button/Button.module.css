@@ -54,11 +54,11 @@
 .noRadius {
     height: 40px;
     border-radius: 0px;
-    width: 100%;
+    width: 100.2%;
 }
 
 .rightRadius {
     height: 40px;
     border-radius: 0px 5px 5px 0px;
-    width: 100%;
+    width: 100.2%;
 }
