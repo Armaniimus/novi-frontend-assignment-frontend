@@ -78,10 +78,10 @@ const AccountBeheer = () => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
                     
-                    <Table titles={['Username', 'New-password*', 'Role', 'Actions']} colSpans={[1,1,1,2]}>
+                    <Table titles={['Gebruikersnaam', 'Nieuw-wachtwoord*', 'Rol', 'Acties']} colSpans={[1,1,1,2]}>
                         {renderedData}
                     </Table>
-                    <p>* if no password is given the password will not be changed</p>
+                    <p>*Als er geen wachtwoord word gegeven dan wordt het wachtwoord niet gewijzigd</p>
                 </div>
             </div>
         </React.Fragment>

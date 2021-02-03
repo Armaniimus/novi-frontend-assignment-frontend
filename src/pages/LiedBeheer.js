@@ -85,7 +85,7 @@ const LiedBeheer = () => {
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     {/* content */}
-                    <Table titles={['Number', 'Title', 'Actions']} colSpans={[1,1,3]}>
+                    <Table titles={['Nummer', 'Titel', 'Acties']} colSpans={[1,1,3]}>
                         {renderedData}
                     </Table>                    
                 </div>

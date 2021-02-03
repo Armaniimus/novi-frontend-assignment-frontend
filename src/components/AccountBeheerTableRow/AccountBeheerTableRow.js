@@ -65,7 +65,7 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
                     <input className={styles.get('inputAdminBeheer pass')} value={pass} onChange={ e => {setPass(e.target.value) }}/>
                 </td>
                 <td>
-                    <input className={styles.get('inputAdminBeheer role')} value={localRole} onChange={ e => {setLocalRole(e.target.value) }}/>
+                    <input className={styles.get('inputAdminBeheer role')} value={localRole} onChange={ e => {setLocalRole(e.target.value) }} type='number' min='1' max='2' step='1'/>
                 </td>
                 <td>
                     <Button className='warning noRadius' callback={() => {onUpdate(id)}}>Update</Button>

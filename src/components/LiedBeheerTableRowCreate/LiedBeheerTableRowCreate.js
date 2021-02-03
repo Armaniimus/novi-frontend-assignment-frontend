@@ -40,10 +40,10 @@ const LiedBeheerTableRow = ({token, addRow}) => {
             <tr className={RawStyles.tableRowSpacer}></tr>
             <tr className={RawStyles.tableRow}>
                 <td>
-                    <input className={styles.get('inputLiedBeheer song-number leftradius')} placeholder='Song number'  value={number} onChange={ e => {setNumber(e.target.value) }} type='number' step='1'/>
+                    <input className={styles.get('inputLiedBeheer song-number leftradius')} placeholder='Lied nummer'  value={number} onChange={ e => {setNumber(e.target.value) }} type='number' step='1'/>
                 </td>
                 <td>
-                    <input className={styles.get('inputLiedBeheer song-title')} placeholder='Song name' value={title} onChange={ e => {setTitle(e.target.value) }} type='text'/>
+                    <input className={styles.get('inputLiedBeheer song-title')} placeholder='Lied titel' value={title} onChange={ e => {setTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
                     <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>

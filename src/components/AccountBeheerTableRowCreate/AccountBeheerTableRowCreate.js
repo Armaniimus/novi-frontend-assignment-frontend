@@ -42,13 +42,13 @@ const AccountBeheerTableRow = ({token, addRow}) => {
             <tr className={RawStyles.tableRowSpacer}></tr>
             <tr className={RawStyles.tableRow}>
                 <td>
-                    <input className={styles.get('inputAdminBeheer username leftradius')} placeholder='Username'  value={username} onChange={ e => {setUsername(e.target.value) }} type='text'/>
+                    <input className={styles.get('inputAdminBeheer username leftradius')} placeholder='Gebruikersnaam'  value={username} onChange={ e => {setUsername(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <input className={styles.get('inputAdminBeheer pass')} placeholder='Password' value={password} onChange={ e => {setPassword(e.target.value) }} type='text'/>
+                    <input className={styles.get('inputAdminBeheer pass')} placeholder='Wachtwoord' value={password} onChange={ e => {setPassword(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <input className={styles.get('inputAdminBeheer role')} placeholder='Role'  value={role} onChange={ e => {setRole(e.target.value) }} type='number' step='1'/>
+                    <input className={styles.get('inputAdminBeheer role')} placeholder='Rol'  value={role} onChange={ e => {setRole(e.target.value) }} type='number' min='1' max='2' step='1'/>
                 </td>
                 <td>
                     <Button className='success rightRadius' callback={() => {onCreate()}}>Create</Button>
