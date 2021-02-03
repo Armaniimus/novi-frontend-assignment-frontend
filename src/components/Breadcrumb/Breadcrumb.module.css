@@ -2,3 +2,12 @@
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
+.breadcrumb-box a {
+    text-decoration: none;
+    color: #33a;
+}
+
+.breadcrumb-box a:hover {
+    text-decoration: underline;
+}
