@@ -9,11 +9,11 @@ import '../css/liedBeheerSpecific.css';
 
 const breadcrumbData = [
     {
-        name: 'Overview',
+        name: 'Overzicht',
         link: '/overview'
     }, 
     {
-        name: 'item',
+        name: 'Liedtekst-pagina',
         link: ''
     }
 ];
@@ -55,7 +55,7 @@ const OverviewSpecific = () => {
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     <div className='edit-container'>
-                        <BlueBar>Number: {songNumber}</BlueBar>
+                        <BlueBar>Nummer: {songNumber}</BlueBar>
                         <h2 className='edit-title'>{songTitle}</h2>
                         <div className='song-input'>
                             <textarea 
