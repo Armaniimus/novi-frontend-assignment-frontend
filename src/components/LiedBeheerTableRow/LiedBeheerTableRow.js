@@ -58,7 +58,7 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
 
     return (
         <React.Fragment>
-            <tr className={RawStyles.tableRowSpacer}></tr>
+            <tr>{/*odds are spacers defined by table comp*/}</tr> 
             <tr className={RawStyles.tableRow}>
                 <td>
                     <input className={styles.get('inputLiedBeheer song-number leftradius')} value={localNumber} onChange={ e => {setLocalNumber(e.target.value) }} type='number'/>

@@ -30,7 +30,7 @@
     padding: 5px;
 }
 
-.tableRowSpacer {
+.tbody tr:nth-of-type(odd) {
     height: 20px;
 }
 

@@ -7,7 +7,7 @@ import RawStyles from './OverviewRow.module.css';
 const OverviewRow = ({id, title, number}) => {
     return (
         <React.Fragment>
-            <tr className={RawStyles.tableRowSpacer}></tr>
+            <tr>{/*odds are spacers defined by table comp*/}</tr> 
             <tr>
                 <td className={RawStyles['td-text']}>{number}</td>
                 <td className={RawStyles['td-text']}>{title}</td>
