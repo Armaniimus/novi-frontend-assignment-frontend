@@ -31,8 +31,6 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
         }
 
         request();
-
-        console.log(id);
     }
 
     const onDelete = (id) => {
@@ -52,8 +50,6 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
         }
 
         request();
-
-        console.log(id);
     }
 
     return (

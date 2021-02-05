@@ -31,8 +31,6 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
         }
 
         request();
-
-        console.log(id);
     }
 
     const onDelete = (id) => {
@@ -50,8 +48,6 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
         }
 
         request();
-
-        console.log(id);
     }
 
     return (
