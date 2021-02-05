@@ -4,6 +4,11 @@
     border-radius: 5px;
     text-align: center;
     white-space: nowrap;
+    transition: color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out
+    ;
 }
 
 .danger {
@@ -20,7 +25,6 @@
 .warning {
     background-color: #FFC107;
     border: 1px solid #FFC107;
-    
     color: #212529;
 }
 
@@ -30,9 +34,9 @@
 }
 
 .success {
-    color: white;
     background-color: #28a745;
     border: 1px solid #28a745;
+    color: white;
 }
 
 .success:hover {
@@ -41,9 +45,9 @@
 }
 
 .info {
-    color: white;
     background-color: #006699;
     border: 1px solid #006699;
+    color: white;
 }
 
 .info:hover {
