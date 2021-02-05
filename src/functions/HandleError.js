@@ -13,9 +13,9 @@ export const HandleApiError = response => {
         console.log('auth failed');
         console.log('returning app to a loggedout state');
 
-        // const navEvent = new PopStateEvent('popstate');
-        // window.history.pushState({}, '', '/logout');
-        // window.dispatchEvent(navEvent);
+        const navEvent = new PopStateEvent('popstate');
+        window.history.pushState({}, '', '/logout');
+        window.dispatchEvent(navEvent);
     } else {
         __failLog(response);
     }
