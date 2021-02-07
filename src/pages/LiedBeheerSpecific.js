@@ -79,7 +79,7 @@ const LiedBeheerSpecific = () => {
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     <div className='edit-container'>
-                        <BlueBar>Number: {songNumber}</BlueBar>
+                        <BlueBar>Nummer: {songNumber}</BlueBar>
                         <h2 className='edit-title'>{songTitle}</h2>
                         <div className='song-input'>
                             <textarea 
@@ -94,7 +94,7 @@ const LiedBeheerSpecific = () => {
                             />
                         </div>
                     </div>    
-                    <Button className='warning' callback={() => {onUpdate(token, songId, songText)}}>Update songtext</Button>               
+                    <Button className='warning' callback={() => {onUpdate(token, songId, songText)}}>Update liedtekst</Button>               
 
 
                 </div>

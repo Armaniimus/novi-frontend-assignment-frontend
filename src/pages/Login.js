@@ -50,11 +50,11 @@ const Login = () => {
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
                     <form onSubmit={onSubmit}>
-                        <label htmlFor='login-username'>Username</label><br />
+                        <label htmlFor='login-username'>Gebruikersnaam</label><br />
                         <input type='text' autoComplete='username' id='login-username' value={username} onChange={ e => {setUsername(e.target.value)} } />
                         
                         <br /><br />
-                        <label htmlFor='login-password'>Password</label><br />
+                        <label htmlFor='login-password'>Wachtwoord</label><br />
                         <input type='password' autoComplete='current-password' id='login-password' value={password} onChange={ e => {setPassword(e.target.value)} }/>
 
                         <br /><br />
