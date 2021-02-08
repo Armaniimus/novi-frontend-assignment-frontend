@@ -8,12 +8,13 @@ import RawStyles from './AccountBeheerTableRow.module.css';
 import HandleModules from '../../functions/HandleModules';
 const styles = new HandleModules(RawStyles);
 
-const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
+const AccountBeheerTableRow = ({token, id, username, role, removeRow, setMessage}) => {
     const [localUsername, setLocalUsername] = useState(username);
     const [localRole, setLocalRole] = useState(role);
     const [pass, setPass] = useState('');
 
     const onUpdate = (id) => {
+        setMessage('');
         const request = async () => {
             let requestData = new URLSearchParams();
             requestData.append('token', token);
@@ -25,7 +26,11 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
 
             if (response.status === 200 && response.data.status === 'success') {
                 console.log(response.data);
+                setPass('');
             } else {
+                if (response.data.errors !== undefined) {
+                    setMessage(response.data.errors);
+                }
                 HandleApiError(response);
             }
         }
@@ -34,6 +39,7 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
     }
 
     const onDelete = (id) => {
+        setMessage('');
         const request = async () => {
             let requestData = new URLSearchParams();
             requestData.append('token', token);
@@ -43,6 +49,9 @@ const AccountBeheerTableRow = ({token, id, username, role, removeRow}) => {
             if (response.status === 200 && response.data.status === 'success') {
                 removeRow(id);
             } else {
+                if (response.data.errors !== undefined) {
+                    setMessage(response.data.errors);
+                }
                 HandleApiError(response);
             }
         }
