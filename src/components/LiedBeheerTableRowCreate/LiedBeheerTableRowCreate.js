@@ -8,12 +8,14 @@ import RawStyles from '../LiedBeheerTableRow/LiedBeheerTableRow.module.css';
 import HandleModules from '../../functions/HandleModules';
 const styles = new HandleModules(RawStyles);
 
-const LiedBeheerTableRow = ({token, addRow}) => {
+const LiedBeheerTableRow = ({token, addRow, setMessage}) => {
     const [number, setNumber] = useState('');
     const [title, setTitle] = useState('');
 
     const onCreate = () => {
         const request = async () => {
+            setMessage('');
+
             let requestData = new URLSearchParams();
             requestData.append('token', token);
             requestData.append('number', number);
@@ -28,6 +30,9 @@ const LiedBeheerTableRow = ({token, addRow}) => {
                 setTitle('');
 
             } else {
+                if (response.data.errors !== undefined) {
+                    setMessage(response.data.errors);
+                }
                 HandleApiError(response);
             }
         }
