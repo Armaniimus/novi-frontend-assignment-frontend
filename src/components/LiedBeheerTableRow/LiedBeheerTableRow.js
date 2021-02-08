@@ -9,13 +9,13 @@ import RawStyles from './LiedBeheerTableRow.module.css';
 import HandleModules from '../../functions/HandleModules';
 const styles = new HandleModules(RawStyles);
 
-
-const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
+const LiedBeheerTableRow = ({token, id, number, title, removeRow, setMessage}) => {
     const [localNumber, setLocalNumber] = useState(number);
     const [localTitle, setLocalTitle] = useState(title);
 
     const onUpdate = (id) => {
         const request = async () => {
+            setMessage('');
             let requestData = new URLSearchParams();
             requestData.append('token', token);
             requestData.append('number', localNumber);
@@ -26,6 +26,10 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
             if (response.status === 200 && response.data.status === 'success') {
                 console.log(response.data);
             } else {
+                if (response.data.errors !== undefined) {
+                    setMessage(response.data.errors);
+                }
+
                 HandleApiError(response);
             }
         }
@@ -45,6 +49,10 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow}) => {
 
                 removeRow(id);
             } else {
+                if (response.data.errors !== undefined) {
+                    setMessage(response.data.errors);
+                }
+
                 HandleApiError(response);
             }
         }
