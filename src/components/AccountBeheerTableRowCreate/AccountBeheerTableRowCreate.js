@@ -8,12 +8,13 @@ import RawStyles from '../AccountBeheerTableRow/AccountBeheerTableRow.module.css
 import HandleModules from '../../functions/HandleModules';
 const styles = new HandleModules(RawStyles);
 
-const AccountBeheerTableRow = ({token, addRow}) => {
+const AccountBeheerTableRow = ({token, addRow, setMessage}) => {
     const [username, setUsername] = useState('');
     const [role, setRole] = useState('');
     const [password, setPassword] = useState('');
 
     const onCreate = () => {
+        setMessage('');
         const request = async () => {
             let requestData = new URLSearchParams();
             requestData.append('token', token);
@@ -30,6 +31,9 @@ const AccountBeheerTableRow = ({token, addRow}) => {
                 setPassword('');
                 setRole('');
             } else {
+                if (response.data.errors !== undefined) {
+                    setMessage(response.data.errors);
+                }
                 HandleApiError(response);
             }
         }
