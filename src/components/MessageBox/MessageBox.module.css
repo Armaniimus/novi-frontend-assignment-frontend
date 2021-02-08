@@ -1,0 +1,9 @@
+.messageBox {
+    /* border: 1px solid grey; */
+    border-radius: 2px;
+
+    padding: 0px;
+    margin-bottom: 10px;
+
+    color: red;
+}
