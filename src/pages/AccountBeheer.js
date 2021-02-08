@@ -7,6 +7,7 @@ import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import AccountBeheerTableRow from '../components/AccountBeheerTableRow/AccountBeheerTableRow';
 import AccountBeheerTableRowCreate from '../components/AccountBeheerTableRowCreate/AccountBeheerTableRowCreate';
 import Table from '../components/Table/Table';
+import MessageBox from '../components/MessageBox/MessageBox';
 
 
 const breadcrumbData = [
@@ -21,6 +22,7 @@ const AccountBeheer = () => {
     
     const [renderedData, setRenderedData] = useState(null);
     const [tableBody, setTableBody] = useState({});
+    const [message, setMessage] = useState('');
 
     const request = async () => {
         let requestData = new URLSearchParams();
@@ -33,7 +35,7 @@ const AccountBeheer = () => {
             if (response.data['accountInfo'] !== undefined) {
                 const newTableBody = response.data['accountInfo'].map( ({id, name, role_id}) => {
                     return (
-                        <AccountBeheerTableRow key={id} token={token} id={id} username={name} role={role_id} removeRow={removeRow}/>
+                        <AccountBeheerTableRow key={id} token={token} id={id} username={name} role={role_id} removeRow={removeRow} setMessage={setMessage}/>
                     );
                 })
                 setTableBody(newTableBody);
@@ -56,7 +58,7 @@ const AccountBeheer = () => {
             setRenderedData(
                 <React.Fragment>
                     {tableBody}
-                    <AccountBeheerTableRowCreate token={token} addRow={addRow}/>
+                    <AccountBeheerTableRowCreate token={token} addRow={addRow} setMessage={setMessage}/>
                 </React.Fragment>
             );
         }
@@ -78,6 +80,7 @@ const AccountBeheer = () => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
                     
+                    <MessageBox>{message}</MessageBox>
                     <Table titles={['Gebruikersnaam', 'Nieuw-wachtwoord*', 'Rol', 'Acties']} colSpans={[1,1,1,2]}>
                         {renderedData}
                     </Table>

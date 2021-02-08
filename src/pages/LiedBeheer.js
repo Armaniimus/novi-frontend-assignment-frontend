@@ -7,6 +7,7 @@ import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import LiedBeheerTableRow from '../components/LiedBeheerTableRow/LiedBeheerTableRow';
 import LiedBeheerTableRowCreate from '../components/LiedBeheerTableRowCreate/LiedBeheerTableRowCreate';
 import Table from '../components/Table/Table';
+import MessageBox from '../components/MessageBox/MessageBox';
 
 const breadcrumbData = [
     {
@@ -17,11 +18,11 @@ const breadcrumbData = [
 
 
 const LiedBeheer = () => {
-    // const token = window.$name;
     const token = Globals.getToken();
 
     const [renderedData, setRenderedData] = useState(null);
     const [tableBody, setTableBody] = useState({});
+    const [message, setMessage] = useState('');
 
     const request = async () => {
         let requestData = new URLSearchParams();
@@ -30,12 +31,11 @@ const LiedBeheer = () => {
 
         if (response.status === 200 && response.data.status === 'success') {
             if (response.data.songInfo !== undefined) {
-                // setData(response.data);
                 console.log('sucess', response.data.songInfo);
 
                 const newTableBody = response.data.songInfo.map( ({id, number, title}) => {
                     return (
-                        <LiedBeheerTableRow key={id} token={token} id={id} number={number} title={title} removeRow={removeRow}/>
+                        <LiedBeheerTableRow key={id} token={token} id={id} number={number} title={title} removeRow={removeRow} setMessage={setMessage}/>
                     );
                 })
                 setTableBody(newTableBody);
@@ -61,11 +61,15 @@ const LiedBeheer = () => {
             setRenderedData(
                 <React.Fragment>
                     {tableBody}
-                    <LiedBeheerTableRowCreate token={token} addRow={addRow}/>
+                    <LiedBeheerTableRowCreate token={token} addRow={addRow} setMessage={setMessage}/>
                 </React.Fragment>
             );
         }
     }
+
+    useEffect( () => {
+        console.log(message);
+    }, [message])
 
     useEffect( () => {
         request();
@@ -84,6 +88,7 @@ const LiedBeheer = () => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
+                    <MessageBox>{message}</MessageBox>
                     {/* content */}
                     <Table titles={['Nummer', 'Titel', 'Acties']} colSpans={[1,1,3]}>
                         {renderedData}
