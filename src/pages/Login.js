@@ -6,6 +6,7 @@ import Globals from '../functions/Globals';
 
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Button from '../components/Button/Button'
+import Messagebox from '../components/MessageBox/MessageBox'
 
 const breadcrumbData = [
     {
@@ -17,8 +18,10 @@ const breadcrumbData = [
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
     const onSubmit = async (e) => {
+        setMessage('');
         e.preventDefault();
         let requestData = new URLSearchParams();
         requestData.append('username', username);
@@ -39,6 +42,11 @@ const Login = () => {
             window.history.pushState({}, '', '/overview');
             window.dispatchEvent(navEvent);
         } else {
+            if (response.data !== undefined && response.data.auth === 'failed') {
+                setMessage('Gebruikersnaam of wachtwoord incorrect');
+            }
+            console.log(response.data);
+
             HandleLoginError(response);
         }
     }
@@ -49,6 +57,7 @@ const Login = () => {
                 <div className='flex-block'>
                     <Breadcrumb data={breadcrumbData} className='breadCrumbItem'/>
 
+                    <Messagebox>{message}</Messagebox>
                     <form onSubmit={onSubmit}>
                         <label htmlFor='login-username'>Gebruikersnaam</label><br />
                         <input type='text' autoComplete='username' id='login-username' value={username} onChange={ e => {setUsername(e.target.value)} } />
