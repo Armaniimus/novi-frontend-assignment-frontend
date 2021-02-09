@@ -35,7 +35,6 @@ const routes = [
     },
     {
         path: '/overview/{id}',
-        // page: <OverviewSpecific urlVars={urlVars}/>,
         page: <OverviewSpecific/>,
         requiredLvl: 1
     },
@@ -51,7 +50,6 @@ const routes = [
     },
     {
         path: '/liedbeheer/{id}',
-        // page: <LiedBeheerSpecific urlVars={urlVars}/>,
         page: <LiedBeheerSpecific/>,
         requiredLvl: 2
     },
