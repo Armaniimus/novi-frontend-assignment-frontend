@@ -15,7 +15,6 @@ const breadcrumbData = [
 ]
 
 const Overview = () => {
-    // const token = window.$name;
     const token = Globals.getToken();
 
     const [data, setData] = useState({});
