@@ -1,1 +1,0 @@
-This repository uses an api developed by the same author named allmost identicly and can be found as repository "armaniimus/novi-frontend-assingment-backend";
