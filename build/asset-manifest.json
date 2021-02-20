@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/novi-frontend-assignment-frontend/static/css/main.5148e05f.chunk.css",
+    "main.js": "/novi-frontend-assignment-frontend/static/js/main.3612584a.chunk.js",
+    "main.js.map": "/novi-frontend-assignment-frontend/static/js/main.3612584a.chunk.js.map",
+    "runtime-main.js": "/novi-frontend-assignment-frontend/static/js/runtime-main.b99781b9.js",
+    "runtime-main.js.map": "/novi-frontend-assignment-frontend/static/js/runtime-main.b99781b9.js.map",
+    "static/js/2.285e02a2.chunk.js": "/novi-frontend-assignment-frontend/static/js/2.285e02a2.chunk.js",
+    "static/js/2.285e02a2.chunk.js.map": "/novi-frontend-assignment-frontend/static/js/2.285e02a2.chunk.js.map",
+    "index.html": "/novi-frontend-assignment-frontend/index.html",
+    "static/css/main.5148e05f.chunk.css.map": "/novi-frontend-assignment-frontend/static/css/main.5148e05f.chunk.css.map",
+    "static/js/2.285e02a2.chunk.js.LICENSE.txt": "/novi-frontend-assignment-frontend/static/js/2.285e02a2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b99781b9.js",
+    "static/js/2.285e02a2.chunk.js",
+    "static/css/main.5148e05f.chunk.css",
+    "static/js/main.3612584a.chunk.js"
+  ]
+}
