@@ -13,7 +13,8 @@ Om de productie versie van deze app te kunnen runnen heb je de volgende de zaken
 1. De source code
 2. Een github account
 3. nodejs
-4. github app (of andere manier om git te gebruiken)
+4. node package manager
+5. github desktop app (of andere manier om git te gebruiken)
 
 # Installatie instructie
 1. Je zet de sourcecode in een map naar keuze.
@@ -24,7 +25,7 @@ Om de productie versie van deze app te kunnen runnen heb je de volgende de zaken
 6. als alles gelukt is kan staat nu het project live op https://{jou github Username}.github.io/{jou github repository}
 
 # Inlog gegevens
-Er zijn 2 accounts beschikbaar voor het nakijken. info staat hieronder. Het administrator account kan meerdere accounts aanmaken. het wordt sterk aangeraden om voor het testen van de wijzigings opties eerst een nieuw backup admin accountje te maken.
+Er zijn 2 accounts beschikbaar voor het nakijken info staat hieronder. Het administrator account kan meerdere accounts aanmaken. het wordt sterk aangeraden om voor het testen van de wijzigings opties eerst een nieuw backup admin accountje te maken.
 
 Ook gelieve informatie van de 2 standaard accounts niet wijzigingen of nadat je klaar bent na de informatie hieronder te resetten. Dit vraag ik omdat de informatie gewijzigd wordt in de database met aangehechte api en anders mogelijk de docent of externe examinator niet meer in kan loggen.
 
