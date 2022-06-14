@@ -1,6 +1,6 @@
 {
-  "homepage": "https://armaniimus.github.io/novi-frontend-assignment-frontend",
-  "name": "novi-frontend-assignment-frontend",
+  "homepage": "/projectFiles/projecten/novi-frontend",
+  "name": "novi-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

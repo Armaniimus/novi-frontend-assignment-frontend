@@ -8,14 +8,16 @@ import Button from '../components/Button/Button';
 import BlueBar from '../components/BlueBar/BlueBar'; 
 import '../css/liedBeheerSpecific.css';
 
+
+const pageConst = Globals.pageConst;
 const breadcrumbData = [
     {
         name: 'Liedbeheer',
-        link: '/liedbeheer'
+        link: `${pageConst}/liedbeheer`
     }, 
     {
         name: 'Bewerk-liedtekst-pagina',
-        link: ''
+        link: pageConst
     }
 ];
 

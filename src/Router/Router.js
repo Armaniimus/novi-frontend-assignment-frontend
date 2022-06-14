@@ -17,49 +17,51 @@ import LiedBeheerSpecific from '../pages/LiedBeheerSpecific';
 import AccountBeheer from '../pages/AccountBeheer';
 import OverviewSpecific from '../pages/OverviewSpecific';
 
+const pageConst = Globals.pageConst;
+
 const routes = [
     {
-        path: '/',
+        path: `${pageConst}`,
         page: <Home/>,
         requiredLvl: 0
     },
     {
-        path: '/logout',
+        path: `${pageConst}/logout`,
         page: <Logout/>,
         requiredLvl: 1
     },
     {
-        path: '/overview',
+        path: `${pageConst}/overview`,
         page: <Overview/>,
         requiredLvl: 1
     },
     {
-        path: '/overview/{id}',
+        path: `${pageConst}/overview/{id}`,
         page: <OverviewSpecific/>,
         requiredLvl: 1
     },
     {
-        path: '/accountbeheer',
+        path: `${pageConst}/accountbeheer`,
         page: <AccountBeheer/>,
         requiredLvl: 2
     },
     {
-        path: '/liedbeheer',
+        path: `${pageConst}/liedbeheer`,
         page: <LiedBeheer />,
         requiredLvl: 2
     },
     {
-        path: '/liedbeheer/{id}',
+        path: `${pageConst}/liedbeheer/{id}`,
         page: <LiedBeheerSpecific/>,
         requiredLvl: 2
     },
     {
-        path: '/404',
+        path: `${pageConst}/404`,
         page: <FourOFour />,
         requiredLvl: 0
     },
     {
-        path: '/login',
+        path: `${pageConst}/login`,
         page: <Login />,
         requiredLvl: 0
     }
@@ -157,7 +159,7 @@ const Router = () => {
 
         if (fourOfour) {
             const navEvent = new PopStateEvent('popstate');
-            window.history.pushState({}, '', '/');
+            window.history.pushState({}, '', `${pageConst}`);
             window.dispatchEvent(navEvent);
             console.info('navigation','404');
         }

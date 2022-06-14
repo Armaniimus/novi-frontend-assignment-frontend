@@ -8,11 +8,13 @@ const noLoginRender = () => {
     return <React.Fragment />;
 }
 
+const pageConst = "/projectFiles/projecten/novi-frontend";
+
 const userRender = () => {
     return (
         <nav className={RawStyles['nav-list']}>
-            <Link href='/' className='nav-link'>Overzicht</Link>
-            <Link href='/logout' className='nav-link logout-link'>Logout</Link>
+            <Link href={`${pageConst}`} className='nav-link'>Overzicht</Link>
+            <Link href={`${pageConst}/logout`} className='nav-link logout-link'>Logout</Link>
         </nav>
     );
 }
@@ -20,10 +22,10 @@ const userRender = () => {
 const adminRender = () => {
     return (
         <nav className={RawStyles['nav-list']}>
-            <Link href='/overview' className='nav-link'>Overzicht</Link>
-            <Link href='/accountbeheer' className='nav-link'> Account Beheer</Link>
-            <Link href='/liedbeheer' className='nav-link'>Lied Beheer</Link>
-            <Link href='/logout' className='nav-link logout-link'>Uitloggen</Link>
+            <Link href={`${pageConst}/overview`} className='nav-link'>Overzicht</Link>
+            <Link href={`${pageConst}/accountbeheer`} className='nav-link'> Account Beheer</Link>
+            <Link href={`${pageConst}/liedbeheer`} className='nav-link'>Lied Beheer</Link>
+            <Link href={`${pageConst}/logout`} className='nav-link logout-link'>Uitloggen</Link>
         </nav>
     );
 }

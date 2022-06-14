@@ -9,13 +9,13 @@ import LiedBeheerTableRowCreate from '../components/LiedBeheerTableRowCreate/Lie
 import Table from '../components/Table/Table';
 import MessageBox from '../components/MessageBox/MessageBox';
 
+const pageConst = Globals.pageConst;
 const breadcrumbData = [
     {
         name: 'Lied Beheer',
-        link: ''
+        link: pageConst
     }
 ];
-
 
 const LiedBeheer = () => {
     const token = Globals.getToken();
@@ -27,7 +27,7 @@ const LiedBeheer = () => {
     const request = async () => {
         let requestData = new URLSearchParams();
         requestData.append('token', token);
-        const response = await OwnApi.post('/liedbeheer', requestData);
+        const response = await OwnApi.post(`/liedbeheer`, requestData);
 
         if (response.status === 200 && response.data.status === 'success') {
             if (response.data.songInfo !== undefined) {

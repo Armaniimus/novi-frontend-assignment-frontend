@@ -8,6 +8,8 @@ class Globals {
     __reloadFunction = null;
     __urlVars = {}
 
+    pageConst = "/projectFiles/projecten/novi-frontend";
+
     setToken(token) {
         this.__token = token;
         this.__HandleCookie.set('token', token);

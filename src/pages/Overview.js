@@ -7,10 +7,11 @@ import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Table from '../components/Table/Table';
 import OverviewRow from '../components/OverviewRow/OverviewRow';
 
+const pageConst = Globals.pageConst;
 const breadcrumbData = [
     {
         name: 'Overzicht',
-        link: ''
+        link: pageConst
     },
 ]
 

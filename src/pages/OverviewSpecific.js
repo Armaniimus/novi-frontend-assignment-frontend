@@ -7,14 +7,15 @@ import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import BlueBar from '../components/BlueBar/BlueBar';
 import '../css/liedBeheerSpecific.css';
 
+const pageConst = Globals.pageConst;
 const breadcrumbData = [
     {
         name: 'Overzicht',
-        link: '/overview'
+        link: `${pageConst}/overview`
     }, 
     {
         name: 'Liedtekst-pagina',
-        link: ''
+        link: pageConst
     }
 ];
 

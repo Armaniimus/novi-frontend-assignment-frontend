@@ -10,10 +10,11 @@ import Table from '../components/Table/Table';
 import MessageBox from '../components/MessageBox/MessageBox';
 
 
+const pageConst = Globals.pageConst;
 const breadcrumbData = [
     {
         name: 'Account Beheer',
-        link: ''
+        link: pageConst
     }
 ];
 

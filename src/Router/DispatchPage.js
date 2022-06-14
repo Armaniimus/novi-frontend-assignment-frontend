@@ -8,6 +8,7 @@ const navEvent = new PopStateEvent('popstate');
 const DispatchPage = ( {requiredLvl, inputPage} ) => {
     const [page, setPage] = useState(<Login />);
     const [debounceDispatch, setDebounceDispatch] = useState(0);
+    const pageConst = Globals.pageConst;
 
 
     useEffect( () => {
@@ -17,7 +18,7 @@ const DispatchPage = ( {requiredLvl, inputPage} ) => {
                 const accountLvl = Globals.getAccountLvl();
                 
                 if (accountLvl === 0 && window.location.pathname !== '/') {
-                    window.history.pushState({}, '', '/');
+                    window.history.pushState({}, '', `${pageConst}/`);
                     window.dispatchEvent(navEvent);
         
                 } else if (accountLvl === 0 && window.location.pathname === '/') {
@@ -25,7 +26,7 @@ const DispatchPage = ( {requiredLvl, inputPage} ) => {
                     console.log('navigation', 'set Loginpage', accountLvl);
 
                 } else if (accountLvl < requiredLvl) {
-                    window.history.pushState({}, '', '/overview');
+                    window.history.pushState({}, '', `${pageConst}/overview`);
                     window.dispatchEvent(navEvent);
                     console.info('navigation', 'too low accountlvl');
                 } else { 

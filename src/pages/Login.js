@@ -8,10 +8,11 @@ import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Button from '../components/Button/Button'
 import Messagebox from '../components/MessageBox/MessageBox'
 
+const pageConst = Globals.pageConst;
 const breadcrumbData = [
     {
         name: 'Login',
-        link: ''
+        link: pageConst
     }
 ];
 
@@ -39,7 +40,7 @@ const Login = () => {
 
             Globals.reload();
             const navEvent = new PopStateEvent('popstate');
-            window.history.pushState({}, '', '/overview');
+            window.history.pushState({}, '', `${pageConst}/overview`);
             window.dispatchEvent(navEvent);
         } else {
             if (response.data !== undefined && response.data.auth === 'failed') {

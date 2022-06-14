@@ -1,4 +1,6 @@
-//
+import Globals from "./Globals.js";
+
+const pageConst = Globals.pageConst;
 
 const __failLog = (response) => {
     if (response.data !== undefined) {
@@ -14,7 +16,7 @@ export const HandleApiError = response => {
         console.log('returning app to a loggedout state');
 
         const navEvent = new PopStateEvent('popstate');
-        window.history.pushState({}, '', '/logout');
+        window.history.pushState({}, '', `${pageConst}/logout`);
         window.dispatchEvent(navEvent);
     } else {
         __failLog(response);
