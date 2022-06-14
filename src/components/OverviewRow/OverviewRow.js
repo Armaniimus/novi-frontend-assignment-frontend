@@ -3,6 +3,8 @@ import Link from '../Link/Link';
 import Button from '../Button/Button';
 
 import RawStyles from './OverviewRow.module.css';
+import Globals from '../../functions/Globals';
+const pageCons = Globals.pageConst;
 
 const OverviewRow = ({id, title, number}) => {
     return (
@@ -12,7 +14,7 @@ const OverviewRow = ({id, title, number}) => {
                 <td className={RawStyles['td-text']}>{number}</td>
                 <td className={RawStyles['td-text']}>{title}</td>
                 <td>
-                    <Link href={`/overview/${id}`} className=''>
+                    <Link href={`${pageCons}/overview/${id}`} className=''>
                         <Button className='info rightRadius'>Bekijk</Button>
                     </Link>
                 </td>  

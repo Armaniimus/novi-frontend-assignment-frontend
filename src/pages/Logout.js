@@ -12,7 +12,7 @@ const Logout = () => {
         Globals.reload();
     
         const navEvent = new PopStateEvent('popstate');
-        window.history.pushState({}, '', `${pageConst}`);
+        window.history.pushState({}, '', `${pageConst}/`);
         window.dispatchEvent(navEvent);
 
         // eslint-disable-next-line

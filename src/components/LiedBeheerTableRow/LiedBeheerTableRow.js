@@ -9,7 +9,7 @@ import Link from '../Link/Link';
 import RawStyles from './LiedBeheerTableRow.module.css';
 import HandleModules from '../../functions/HandleModules';
 const styles = new HandleModules(RawStyles);
-const pageConst = Globals.pageCons;
+const pageConst = Globals.pageConst;
 
 const LiedBeheerTableRow = ({token, id, number, title, removeRow, setMessage}) => {
     const [localNumber, setLocalNumber] = useState(number);
