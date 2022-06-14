@@ -8,8 +8,8 @@ class Globals {
     __reloadFunction = null;
     __urlVars = {}
 
-    // pageConst = "/projectFiles/projecten/novi-frontend";
-    pageConst = "";
+    pageConst = "/projectFiles/projecten/novi-frontend";
+    // pageConst = "";
 
     setToken(token) {
         this.__token = token;

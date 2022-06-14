@@ -50,7 +50,7 @@ const Header = () => {
     return (
         <header>
             <h1 className={RawStyles['nav-logo']}>
-                <Link href='/' className='nav-link'>ZingApp</Link>
+                <Link href={`${pageConst}/`} className='nav-link'>ZingApp</Link>
             </h1>
             {renderedElement}
         </header>

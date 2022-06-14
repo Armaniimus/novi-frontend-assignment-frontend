@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import OwnApi from '../../apis/OwnApi'
 import {HandleApiError} from '../../functions/HandleError';
+import Globals from '../../functions/Globals';
 
 import Button from '../Button/Button'
 import Link from '../Link/Link';
@@ -8,6 +9,7 @@ import Link from '../Link/Link';
 import RawStyles from './LiedBeheerTableRow.module.css';
 import HandleModules from '../../functions/HandleModules';
 const styles = new HandleModules(RawStyles);
+const pageConst = Globals.pageCons;
 
 const LiedBeheerTableRow = ({token, id, number, title, removeRow, setMessage}) => {
     const [localNumber, setLocalNumber] = useState(number);
@@ -71,7 +73,7 @@ const LiedBeheerTableRow = ({token, id, number, title, removeRow, setMessage}) =
                     <input className={styles.get('inputLiedBeheer song-title')} value={localTitle} onChange={ e => {setLocalTitle(e.target.value) }} type='text'/>
                 </td>
                 <td>
-                    <Link href={`/liedbeheer/${id}`} className=''>
+                    <Link href={`${pageConst}/liedbeheer/${id}`} className=''>
                         <Button className='info noRadius' >Bewerk liedtekst</Button>
                     </Link>
                 </td>

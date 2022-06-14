@@ -17,11 +17,11 @@ const DispatchPage = ( {requiredLvl, inputPage} ) => {
             setTimeout( () => {
                 const accountLvl = Globals.getAccountLvl();
                 
-                if (accountLvl === 0 && window.location.pathname !== '/') {
+                if (accountLvl === 0 && window.location.pathname !== `${pageConst}/`) {
                     window.history.pushState({}, '', `${pageConst}/`);
                     window.dispatchEvent(navEvent);
         
-                } else if (accountLvl === 0 && window.location.pathname === '/') {
+                } else if (accountLvl === 0 && window.location.pathname === `${pageConst}/`) {
                     setPage(<Login />);
                     console.log('navigation', 'set Loginpage', accountLvl);
 
