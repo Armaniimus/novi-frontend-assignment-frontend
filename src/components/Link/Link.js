@@ -5,8 +5,6 @@ import RawStyles from './Link.module.css';
 import HandleModules from '../../functions/HandleModules';
 const styles = new HandleModules(RawStyles);
 
-const pageConst = "/projectFiles/projecten/novi-frontend";
-
 const Link = ({ className, href, children }) => {
     className = (className === undefined ? '':className);
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from '../Link/Link';
+import Globals from '../../functions/Globals';
+
 
 import RawStyles from './Breadcrumb.module.css';
 
-const pageConst = "/projectFiles/projecten/novi-frontend";
+const pageConst = Globals.pageConst;
 
 const Breadcrumb = ({data, className}) => {    
     const rawCrumbs = [];

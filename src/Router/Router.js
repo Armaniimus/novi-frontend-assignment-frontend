@@ -21,7 +21,7 @@ const pageConst = Globals.pageConst;
 
 const routes = [
     {
-        path: `${pageConst}`,
+        path: `${pageConst}/`,
         page: <Home/>,
         requiredLvl: 0
     },
@@ -159,7 +159,7 @@ const Router = () => {
 
         if (fourOfour) {
             const navEvent = new PopStateEvent('popstate');
-            window.history.pushState({}, '', `${pageConst}`);
+            window.history.pushState({}, '', `${pageConst}/`);
             window.dispatchEvent(navEvent);
             console.info('navigation','404');
         }
